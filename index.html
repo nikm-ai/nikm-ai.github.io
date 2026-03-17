@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Manohar Analytics Consulting | Work</title>
+<title>Nik Manohar | Quantitative Data Science Consulting</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -481,14 +481,78 @@ code {
   font-style: italic;
   line-height: 1.6;
 }
+
+/* ---- HERO ---- */
+.hero { padding-bottom: 2.5rem; }
+.hero-name {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 400;
+  line-height: 1.05;
+  color: var(--ink);
+  margin: 0.4rem 0 1rem;
+  letter-spacing: -0.01em;
+}
+.hero-name em { font-style: italic; color: var(--ink-mid); }
+.hero-bio {
+  font-size: 15px;
+  color: var(--ink-mid);
+  line-height: 1.8;
+  max-width: 62ch;
+  margin-bottom: 1.75rem;
+}
+.hero-bio strong { color: var(--ink); font-weight: 500; }
+.hero-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  align-items: center;
+}
+.hero-link {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11.5px;
+  color: var(--ink-dim);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.15s;
+}
+.hero-link:hover { color: var(--accent); }
+.hero-link svg { width: 12px; height: 12px; flex-shrink: 0; }
 </style>
 </head>
 <body>
 
-<!-- ================================================ HEADER ================================================ -->
-<div class="label" style="margin-bottom:0.6rem">Manohar Analytics Consulting</div>
-<h1>Selected Work<br><em>and Applications</em></h1>
-<p class="lede">A selection of client engagements and live tools spanning predictive modeling, data pipeline architecture, machine learning evaluation, and analytical automation. Methods and results are documented in the case studies below.</p>
+<!-- ================================================ HERO ================================================ -->
+<div class="hero">
+  <div class="label" style="margin-bottom:0.5rem">Manohar Analytics Consulting</div>
+  <div class="hero-name">Nik Manohar<br><em>Quantitative Data Science</em></div>
+  <p class="hero-bio">
+    Eight years of applied research and production modeling across consumer technology, institutional asset management, litigation economics, and independent consulting. Engagements cover the full analytical pipeline: feature engineering, model development and validation, data infrastructure, and stakeholder-facing reporting. Technical fluency in <strong>Python, SQL, dbt, and Looker</strong>; domain experience in customer analytics, risk modeling, and LLM system design. New York, NY.
+  </p>
+  <div class="hero-contact">
+    <a class="hero-link" href="mailto:nikhilmanohar94@gmail.com">
+      <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="2.5" width="10" height="7" rx="1" stroke="currentColor" stroke-width="1"/><path d="M1 3.5L6 7l5-3.5" stroke="currentColor" stroke-width="1"/></svg>
+      nikhilmanohar94@gmail.com
+    </a>
+    <a class="hero-link" href="https://www.linkedin.com/in/nik-manohar/" target="_blank">
+      <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="10" height="10" rx="1.5" stroke="currentColor" stroke-width="1"/><path d="M3.5 5v3.5M3.5 3.5v.01M5.5 8.5V6a1 1 0 012 0v2.5M5.5 6.5h2" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>
+      linkedin.com/in/nik-manohar
+    </a>
+    <a class="hero-link" href="https://github.com/nikm-ai" target="_blank">
+      <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 1C3.24 1 1 3.24 1 6c0 2.21 1.43 4.08 3.42 4.74.25.05.34-.11.34-.24v-.85c-1.39.3-1.68-.67-1.68-.67-.23-.58-.56-.73-.56-.73-.45-.31.04-.3.04-.3.5.03.76.51.76.51.44.76 1.16.54 1.44.41.04-.32.17-.54.31-.66-1.1-.13-2.26-.55-2.26-2.45 0-.54.19-.98.51-1.33-.05-.13-.22-.63.05-1.31 0 0 .42-.13 1.37.51a4.76 4.76 0 012.5 0c.95-.64 1.37-.51 1.37-.51.27.68.1 1.18.05 1.31.32.35.51.79.51 1.33 0 1.91-1.16 2.32-2.27 2.45.18.15.34.46.34.93v1.38c0 .13.09.29.34.24A5.01 5.01 0 0011 6c0-2.76-2.24-5-5-5z" stroke="currentColor" stroke-width=".8" fill="currentColor"/></svg>
+      github.com/nikm-ai
+    </a>
+  </div>
+</div>
+
+<hr class="rule" style="margin-top:0">
+
+<!-- ================================================ WORK HEADER ================================================ -->
+<div class="label" style="margin-bottom:0.5rem">Selected Work &amp; Applications</div>
+<p class="lede" style="margin-bottom:1.75rem">Client engagements and research tools in predictive modeling, data pipeline architecture, machine learning evaluation, and analytical automation.</p>
 
 <hr class="rule" style="margin-top:0">
 
@@ -1158,7 +1222,7 @@ code {
               <div class="stat-box"><div class="stat-num">100%</div><div class="stat-unit">Format consistency</div></div>
               <div class="stat-box"><div class="stat-num">0</div><div class="stat-unit">Reg. violations</div></div>
             </div>
-            <p class="slide-body">The client described the automation as the most significant improvement to their analytical consumption workflow since the reporting function was established. The human review step was retained as a contractual and regulatory requirement, not as a quality hedge. Average analyst review time fell from 6 to 8 hours to under 20 minutes per cycle.</p>
+            <p class="slide-body">The human review step was retained as a contractual and regulatory requirement, not a quality hedge. Average analyst review time declined from 6 to 8 hours to under 20 minutes per cycle. The pipeline has operated in production without a regulatory language violation across all monthly cycles to date.</p>
           </div>
           <div>
             <div class="slide-label" style="margin-bottom:0.5rem">Documented limitations</div>
@@ -1349,7 +1413,7 @@ code {
 
 <div style="margin-top:3rem;padding-top:2rem;border-top:0.5px solid var(--rule)">
   <div class="label" style="margin-bottom:0.5rem">Manohar Analytics Consulting</div>
-  <p style="font-size:12px;color:var(--ink-dim);line-height:1.6">Independent data science and machine learning consulting. New York, NY. Engagements in predictive modeling, data infrastructure, and analytical automation for startups and mid-sized companies.</p>
+  <p style="font-size:12px;color:var(--ink-dim);line-height:1.6">Independent data science and machine learning consulting. New York, NY. Engagements in predictive modeling, data infrastructure, and analytical automation for startups and mid-sized companies. <a href="mailto:nikhilmanohar94@gmail.com" style="color:var(--ink-dim);text-decoration:none;">nikhilmanohar94@gmail.com</a></p>
 </div>
 
 <script>
