@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manohar Analytics Consulting | Work</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:        #e8e4dc;
+  --ink-mid:    #a09b90;
+  --ink-dim:    #6b6660;
+  --ink-faint:  #3a3733;
+  --paper:      #111110;
+  --paper-2:    #191917;
+  --paper-3:    #222220;
+  --paper-4:    #2c2c29;
+  --rule:       rgba(232,228,220,0.10);
+  --rule-mid:   rgba(232,228,220,0.20);
+  --accent:     #c8b97a;
+  --accent-dim: rgba(200,185,122,0.15);
+  --red:        #c97a6a;
+  --red-dim:    rgba(201,122,106,0.12);
+  --teal:       #6aacad;
+  --teal-dim:   rgba(106,172,173,0.12);
+}
+
+html { background: var(--paper); }
+
+body {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--paper);
+  padding: 3rem 2rem 5rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* ---- TYPE ---- */
+.label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+
+h1 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--ink);
+  margin: 0.5rem 0 1.25rem;
+}
+h1 em { font-style: italic; color: var(--ink-mid); }
+
+h2 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(18px, 2.5vw, 24px);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+}
+h2 em { font-style: italic; color: var(--ink-mid); }
+
+.lede {
+  font-size: 15px;
+  color: var(--ink-mid);
+  line-height: 1.75;
+  max-width: 64ch;
+  margin-bottom: 2rem;
+}
+
+hr.rule {
+  border: none;
+  border-top: 0.5px solid var(--rule);
+  margin: 3rem 0;
+}
+
+/* ---- SECTION HEADERS ---- */
+.section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+.section-head::after {
+  content: '';
+  flex: 1;
+  height: 0.5px;
+  background: var(--rule);
+  margin-left: 0.5rem;
+}
+
+/* ---- APP CARDS ---- */
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  border: 0.5px solid var(--rule);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--rule);
+}
+@media (max-width: 680px) { .app-grid { grid-template-columns: 1fr; } }
+
+.app-card {
+  background: var(--paper-2);
+  padding: 1.5rem;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: background 0.15s;
+  position: relative;
+}
+.app-card:hover { background: var(--paper-3); }
+
+.app-card-number {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--ink-dim);
+  letter-spacing: 0.05em;
+}
+
+.app-card-title {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.35;
+}
+
+.app-card-desc {
+  font-size: 13px;
+  color: var(--ink-mid);
+  line-height: 1.6;
+  flex: 1;
+}
+
+.app-card-link {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: auto;
+}
+.app-card-link svg { width: 10px; height: 10px; }
+
+.tag-row { display: flex; flex-wrap: wrap; gap: 5px; }
+.tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  padding: 2px 7px;
+  border-radius: 2px;
+  background: var(--paper-4);
+  color: var(--ink-dim);
+  border: 0.5px solid var(--rule);
+}
+
+/* ---- SLIDE DECK ---- */
+.deck {
+  border: 0.5px solid var(--rule);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 1px;
+}
+.deck + .deck { margin-top: 2px; }
+
+.deck-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: var(--paper-2);
+  cursor: pointer;
+  user-select: none;
+  border-bottom: 0.5px solid var(--rule);
+  transition: background 0.12s;
+}
+.deck-header:hover { background: var(--paper-3); }
+
+.deck-num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--ink-dim);
+  width: 28px;
+}
+
+.deck-header-title {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--ink);
+}
+.deck-header-sub {
+  font-size: 12px;
+  color: var(--ink-dim);
+  margin-top: 1px;
+}
+
+.deck-chevron {
+  color: var(--ink-dim);
+  font-size: 14px;
+  transition: transform 0.2s;
+  line-height: 1;
+}
+.deck-chevron.open { transform: rotate(180deg); }
+
+.deck-body {
+  display: none;
+  background: var(--paper-2);
+}
+.deck-body.open { display: block; }
+
+/* slide controls */
+.slide-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 1.25rem;
+  border-bottom: 0.5px solid var(--rule);
+  background: var(--paper-3);
+}
+.slide-ctrl-btn {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  background: none;
+  border: 0.5px solid var(--rule-mid);
+  color: var(--ink-mid);
+  padding: 4px 14px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.12s;
+  letter-spacing: 0.03em;
+}
+.slide-ctrl-btn:hover:not(:disabled) { border-color: var(--ink-mid); color: var(--ink); }
+.slide-ctrl-btn:disabled { opacity: 0.25; cursor: default; }
+
+.slide-progress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.slide-pips { display: flex; gap: 4px; }
+.pip {
+  width: 18px; height: 2px;
+  background: var(--ink-faint);
+  border-radius: 1px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.pip.active { background: var(--accent); }
+.slide-count {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--ink-dim);
+}
+
+/* slide viewport */
+.slide-viewport {
+  min-height: 320px;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute; inset: 0;
+  padding: 2.5rem 3rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+.slide.active { opacity: 1; pointer-events: auto; position: relative; }
+@media (max-width: 600px) { .slide { padding: 1.5rem; } }
+
+/* slide layout helpers */
+.slide-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  margin-bottom: 0.6rem;
+}
+.slide-title {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(20px, 3vw, 30px);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--ink);
+  margin-bottom: 1.25rem;
+}
+.slide-title em { font-style: italic; color: var(--ink-mid); }
+
+.slide-body {
+  font-size: 14px;
+  color: var(--ink-mid);
+  line-height: 1.75;
+  max-width: 66ch;
+}
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+@media (max-width: 620px) { .two-col { grid-template-columns: 1fr; } .three-col { grid-template-columns: 1fr 1fr; } }
+
+/* stat boxes */
+.stat-box {
+  border: 0.5px solid var(--rule);
+  border-radius: 2px;
+  padding: 1rem;
+  background: var(--paper-3);
+}
+.stat-num {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 32px;
+  line-height: 1;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.stat-unit {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+.stat-note {
+  font-size: 12px;
+  color: var(--ink-dim);
+  margin-top: 5px;
+  line-height: 1.5;
+}
+
+/* data table */
+.dtable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+}
+.dtable th {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  text-align: left;
+  padding: 6px 12px 6px 0;
+  border-bottom: 0.5px solid var(--rule-mid);
+}
+.dtable td {
+  padding: 8px 12px 8px 0;
+  color: var(--ink-mid);
+  border-bottom: 0.5px solid var(--rule);
+  vertical-align: top;
+  line-height: 1.5;
+}
+.dtable td:first-child { color: var(--ink); font-weight: 400; }
+.dtable tr:last-child td { border-bottom: none; }
+
+/* bar chart */
+.bar-chart { display: flex; flex-direction: column; gap: 10px; }
+.bar-row { display: flex; align-items: center; gap: 10px; }
+.bar-label { font-size: 12px; color: var(--ink-mid); min-width: 100px; flex-shrink: 0; }
+.bar-track { flex: 1; height: 6px; background: var(--paper-4); border-radius: 1px; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 1px; transition: width 0.5s ease; }
+.bar-val { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--ink-dim); min-width: 36px; text-align: right; }
+
+/* callout */
+.callout {
+  border-left: 2px solid var(--accent);
+  background: var(--accent-dim);
+  padding: 0.75rem 1rem;
+  border-radius: 0 2px 2px 0;
+  font-size: 13px;
+  color: var(--ink);
+  line-height: 1.6;
+  margin-top: 1rem;
+}
+.callout.red { border-color: var(--red); background: var(--red-dim); color: var(--ink-mid); }
+.callout.teal { border-color: var(--teal); background: var(--teal-dim); color: var(--ink-mid); }
+
+/* bullet list */
+.blist { list-style: none; padding: 0; margin: 0.75rem 0; }
+.blist li {
+  font-size: 13.5px;
+  color: var(--ink-mid);
+  padding: 7px 0 7px 1.25rem;
+  border-bottom: 0.5px solid var(--rule);
+  position: relative;
+  line-height: 1.55;
+}
+.blist li:last-child { border-bottom: none; }
+.blist li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 14px;
+  width: 5px; height: 1px;
+  background: var(--ink-dim);
+}
+
+/* mono code inline */
+code {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  background: var(--paper-4);
+  padding: 1px 5px;
+  border-radius: 2px;
+  color: var(--teal);
+}
+
+/* pipeline layer diagram */
+.pipeline {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  border: 0.5px solid var(--rule);
+  border-radius: 2px;
+  overflow: hidden;
+  margin: 1rem 0;
+}
+.pl-node {
+  background: var(--paper-3);
+  padding: 0.75rem;
+  text-align: center;
+  position: relative;
+}
+.pl-node::after {
+  content: '';
+  position: absolute;
+  right: -6px; top: 50%; transform: translateY(-50%);
+  width: 0; height: 0;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-left: 6px solid var(--paper-3);
+  z-index: 2;
+}
+.pl-node:last-child::after { display: none; }
+.pl-name { font-size: 11px; font-weight: 500; color: var(--ink); letter-spacing: 0.04em; }
+.pl-sub { font-size: 10px; color: var(--ink-dim); margin-top: 2px; }
+.pl-node.active { background: var(--paper-4); }
+.pl-node.active .pl-name { color: var(--accent); }
+
+/* verdict badge */
+.verdict {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 2px;
+  margin-bottom: 0.75rem;
+}
+.verdict.rec { background: var(--teal-dim); color: var(--teal); border: 0.5px solid var(--teal); }
+.verdict.out { background: var(--red-dim); color: var(--red); border: 0.5px solid var(--red); }
+.verdict.neu { background: var(--accent-dim); color: var(--accent); border: 0.5px solid var(--accent); }
+
+/* footnote */
+.footnote {
+  font-size: 11.5px;
+  color: var(--ink-dim);
+  border-top: 0.5px solid var(--rule);
+  padding-top: 0.75rem;
+  margin-top: 1.5rem;
+  font-style: italic;
+  line-height: 1.6;
+}
+</style>
+</head>
+<body>
+
+<!-- ================================================ HEADER ================================================ -->
+<div class="label" style="margin-bottom:0.6rem">Manohar Analytics Consulting</div>
+<h1>Selected Work<br><em>and Applications</em></h1>
+<p class="lede">A selection of client engagements and live tools spanning predictive modeling, data pipeline architecture, machine learning evaluation, and analytical automation. Methods and results are documented in the case studies below.</p>
+
+<hr class="rule" style="margin-top:0">
+
+<!-- ================================================ STREAMLIT APPS ================================================ -->
+<div class="section-head">
+  <span class="label">Live applications</span>
+</div>
+
+<div class="app-grid">
+  <a href="https://nikmportfolioriskdash.streamlit.app/" target="_blank" class="app-card">
+    <div class="app-card-number">APP 01</div>
+    <div class="app-card-title">Equity Portfolio Risk Dashboard</div>
+    <div class="app-card-desc">Risk attribution and factor analysis across a 20-stock US large-cap portfolio benchmarked against the S&P 500. Covers annualized return, volatility, Sharpe, Sortino, Calmar, VaR, CVaR, market beta, CAPM alpha, Fama-French three-factor attribution, mean-variance efficient frontier, stress testing across six historical dislocations, and regime detection via rolling HMM-inspired threshold.</div>
+    <div class="tag-row">
+      <span class="tag">Python</span>
+      <span class="tag">yfinance</span>
+      <span class="tag">Fama-French</span>
+      <span class="tag">VaR / CVaR</span>
+      <span class="tag">Efficient frontier</span>
+    </div>
+    <div class="app-card-link">
+      Open application
+      <svg viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M8 2H4M8 2V6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+    </div>
+  </a>
+
+  <a href="https://marketpricingintelligence-atvmumeubevb2x8cpbhddx.streamlit.app/" target="_blank" class="app-card">
+    <div class="app-card-number">APP 02</div>
+    <div class="app-card-title">Rental Pricing Intelligence</div>
+    <div class="app-card-desc">Gradient Boosting Regressor trained on 2,000 synthetic listings across five US metropolitan markets. Detects systematic pricing inefficiencies at the portfolio level. Cross-validated R² of 0.946 (MAE = $164/month), outperforming Ridge baseline by 14.6 percentage points. Interactive scenario analysis with demand elasticity and occupancy parameters.</div>
+    <div class="tag-row">
+      <span class="tag">GBM</span>
+      <span class="tag">sklearn</span>
+      <span class="tag">CV R² 0.946</span>
+      <span class="tag">Multi-market</span>
+      <span class="tag">Mispricing detection</span>
+    </div>
+    <div class="app-card-link">
+      Open application
+      <svg viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M8 2H4M8 2V6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+    </div>
+  </a>
+
+  <a href="https://nikmlbo.streamlit.app/" target="_blank" class="app-card">
+    <div class="app-card-number">APP 03</div>
+    <div class="app-card-title">Leveraged Buyout Analysis</div>
+    <div class="app-card-desc">Interactive LBO transaction structuring model with full return attribution, sensitivity tables, and Quasi-Monte Carlo risk simulation. Computes IRR and MOIC distributions under stochastic EBITDA growth, exit multiple, and debt structure assumptions. Covers mechanics of LBO structuring, sources of equity return, and institutional threshold benchmarks.</div>
+    <div class="tag-row">
+      <span class="tag">Monte Carlo</span>
+      <span class="tag">IRR / MOIC</span>
+      <span class="tag">Return attribution</span>
+      <span class="tag">Sensitivity grids</span>
+    </div>
+    <div class="app-card-link">
+      Open application
+      <svg viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M8 2H4M8 2V6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+    </div>
+  </a>
+</div>
+
+<hr class="rule">
+
+<!-- ================================================ CASE STUDIES ================================================ -->
+<div class="section-head">
+  <span class="label">Case studies</span>
+</div>
+
+<!-- ======================== DECK 1: CHURN ======================== -->
+<div class="deck" id="deck1">
+  <div class="deck-header" onclick="toggleDeck('deck1')">
+    <div class="deck-num">01</div>
+    <div>
+      <div class="deck-header-title">Customer Churn Prediction via Behavioral Feature Engineering</div>
+      <div class="deck-header-sub">XGBoost classification &nbsp;|&nbsp; Tutoring platform &nbsp;|&nbsp; 81% holdout recall</div>
+    </div>
+    <div class="deck-chevron" id="deck1-chev">&#8964;</div>
+  </div>
+  <div class="deck-body" id="deck1-body">
+    <div class="slide-controls">
+      <button class="slide-ctrl-btn" id="deck1-prev" onclick="prevSlide('deck1')" disabled>Prev</button>
+      <div class="slide-progress">
+        <div class="slide-pips" id="deck1-pips"></div>
+        <span class="slide-count" id="deck1-count">1 / 6</span>
+      </div>
+      <button class="slide-ctrl-btn" id="deck1-next" onclick="nextSlide('deck1')">Next</button>
+    </div>
+    <div class="slide-viewport" id="deck1-vp">
+
+      <div class="slide active">
+        <div class="slide-label">Problem statement</div>
+        <div class="slide-title">Predicting 90-Day Churn<br>from <em>Behavioral Engagement Signals</em></div>
+        <div class="two-col">
+          <div>
+            <p class="slide-body">A tutoring platform was experiencing elevated 90-day churn rates with no systematic early-warning capability. Support teams operated reactively, contacting students only after cancellation intent had been expressed. The objective was to develop a predictive model capable of surfacing at-risk students during the engagement window when intervention remains viable, and to rank-order the at-risk population to allow targeted outreach prioritization under limited staff capacity.</p>
+          </div>
+          <div>
+            <div class="stat-box" style="margin-bottom:1rem">
+              <div class="stat-num">~8%</div>
+              <div class="stat-unit">Churn reduction</div>
+              <div class="stat-note">Achieved over 90-day post-deployment window via targeted outreach prioritization</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-num">81%</div>
+              <div class="stat-unit">Holdout recall</div>
+              <div class="stat-note">XGBoost classifier on behavioral feature set; precision-recall optimized for intervention budget</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-label">Feature engineering</div>
+        <div class="slide-title">Behavioral Signal <em>Construction</em></div>
+        <p class="slide-body" style="margin-bottom:1.25rem">All features were derived from raw session and assessment event logs. No demographic or subscription-tier information was included in the final model, limiting potential for proxy discrimination. The feature set captures engagement trajectory, not just current state.</p>
+        <table class="dtable">
+          <thead><tr><th>Feature</th><th>Construction</th><th>Rationale</th></tr></thead>
+          <tbody>
+            <tr><td>Session frequency (30d)</td><td>Count of sessions in trailing 30-day window</td><td>Primary engagement signal; decay indicates disengagement onset</td></tr>
+            <tr><td>Assessment score trend</td><td>OLS slope over last 5 assessments</td><td>Captures academic trajectory independent of level</td></tr>
+            <tr><td>Days since last login</td><td>Calendar days from most recent session</td><td>Recency; strong leading indicator of cancellation intent</td></tr>
+            <tr><td>Drop-off signal score</td><td>Weighted ratio of scheduled vs. attended sessions</td><td>No-shows more predictive than cancellations in this cohort</td></tr>
+            <tr><td>Subscription tenure</td><td>Months since enrollment</td><td>Churn hazard is highest in months 1 to 3; tenure controls cohort effects</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="slide">
+        <div class="slide-label">Model development</div>
+        <div class="slide-title">XGBoost Training and <em>Threshold Optimization</em></div>
+        <div class="two-col">
+          <div>
+            <p class="slide-body" style="margin-bottom:1rem">XGBoost was selected over logistic regression and random forest after 5-fold cross-validation. The primary evaluation metric was recall rather than accuracy, given that the cost of missing an at-risk student (false negative) substantially exceeds the cost of an unnecessary outreach contact (false positive) under the client's operational model.</p>
+            <p class="slide-body">Classification threshold was tuned on the validation set by plotting the precision-recall curve and selecting the operating point consistent with the outreach team's capacity to contact approximately 15% of the active student population per week.</p>
+          </div>
+          <div>
+            <div style="margin-bottom:1.25rem">
+              <div class="slide-label" style="margin-bottom:0.75rem">Cross-validation results</div>
+              <div class="bar-chart">
+                <div class="bar-row">
+                  <div class="bar-label">XGBoost (final)</div>
+                  <div class="bar-track"><div class="bar-fill" style="width:81%;background:var(--accent)"></div></div>
+                  <div class="bar-val">0.81</div>
+                </div>
+                <div class="bar-row">
+                  <div class="bar-label">Random Forest</div>
+                  <div class="bar-track"><div class="bar-fill" style="width:74%;background:var(--ink-faint)"></div></div>
+                  <div class="bar-val">0.74</div>
+                </div>
+                <div class="bar-row">
+                  <div class="bar-label">Logistic Reg.</div>
+                  <div class="bar-track"><div class="bar-fill" style="width:67%;background:var(--ink-faint)"></div></div>
+                  <div class="bar-val">0.67</div>
+                </div>
+                <div class="bar-row">
+                  <div class="bar-label">Naive baseline</div>
+                  <div class="bar-track"><div class="bar-fill" style="width:51%;background:var(--ink-faint)"></div></div>
+                  <div class="bar-val">0.51</div>
+                </div>
+              </div>
+              <div class="footnote" style="margin-top:0.75rem">Recall at threshold = 0.40, 5-fold CV on training set</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-label">Feature importance</div>
+        <div class="slide-title">SHAP-Based Attribution<br>of <em>Predictive Contribution</em></div>
+        <p class="slide-body" style="margin-bottom:1.25rem">SHAP (SHapley Additive exPlanations) values were computed on the test set to produce a model-level ranking of feature contributions and to support per-student explainability in the outreach tool. Session frequency and recency together account for the majority of predictive signal.</p>
+        <div class="bar-chart">
+          <div class="bar-row">
+            <div class="bar-label">Session frequency</div>
+            <div class="bar-track"><div class="bar-fill" style="width:88%;background:var(--accent)"></div></div>
+            <div class="bar-val">0.88</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">Days since login</div>
+            <div class="bar-track"><div class="bar-fill" style="width:76%;background:var(--accent)"></div></div>
+            <div class="bar-val">0.76</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">Drop-off signal</div>
+            <div class="bar-track"><div class="bar-fill" style="width:61%;background:var(--ink-mid)"></div></div>
+            <div class="bar-val">0.61</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">Assessment trend</div>
+            <div class="bar-track"><div class="bar-fill" style="width:48%;background:var(--ink-mid)"></div></div>
+            <div class="bar-val">0.48</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">Tenure</div>
+            <div class="bar-track"><div class="bar-fill" style="width:32%;background:var(--ink-dim)"></div></div>
+            <div class="bar-val">0.32</div>
+          </div>
+        </div>
+        <div class="footnote">Mean absolute SHAP value, test set (n = 840 students). Higher values indicate greater average contribution to churn probability prediction.</div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-label">Deployment architecture</div>
+        <div class="slide-title">Operationalizing the<br><em>Outreach Prioritization Pipeline</em></div>
+        <div class="two-col">
+          <div>
+            <p class="slide-body" style="margin-bottom:1rem">The model was deployed as a weekly batch scoring job rather than a real-time inference endpoint, consistent with the support team's Monday-morning triage workflow. Scored students are ranked by predicted churn probability and surfaced in a prioritized outreach queue with the top three contributing features displayed per student.</p>
+            <ul class="blist">
+              <li>Weekly batch inference on all active students with tenure under 12 months</li>
+              <li>Top 15% of scored population flagged for high-priority outreach</li>
+              <li>Students in months 1 to 3 receive a separate cohort flag given elevated baseline hazard</li>
+              <li>Model retrained quarterly on rolling 18-month window as engagement patterns evolve</li>
+            </ul>
+          </div>
+          <div>
+            <div class="callout">Deployment reduced time-to-contact for at-risk students from 14 days (reactive) to 4 days (proactive), within the first quarter of operation.</div>
+            <div class="callout teal" style="margin-top:0.75rem">The 81% recall threshold was calibrated to match the outreach team's weekly contact capacity. Operating at higher thresholds recovered additional at-risk students but exceeded staffing limits; this is documented as a scaling constraint for future investment decisions.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-label">Results and limitations</div>
+        <div class="slide-title">Measured Outcomes<br>and <em>Study Limitations</em></div>
+        <div class="two-col">
+          <div>
+            <div class="slide-label" style="margin-bottom:0.5rem">Outcomes (90-day post-deployment)</div>
+            <div class="three-col" style="margin-bottom:1.25rem">
+              <div class="stat-box"><div class="stat-num">~8%</div><div class="stat-unit">Churn reduction</div></div>
+              <div class="stat-box"><div class="stat-num">81%</div><div class="stat-unit">Recall</div></div>
+              <div class="stat-box"><div class="stat-num">4d</div><div class="stat-unit">Avg. TTContact</div></div>
+            </div>
+            <div class="slide-label" style="margin-bottom:0.5rem">Limitations</div>
+            <ul class="blist">
+              <li>Churn reduction estimate is not from a randomized experiment; treated and control groups were not formally separated at deployment</li>
+              <li>Feature set is behavioral only; academic difficulty indicators (subject, level) were available but excluded to reduce scope</li>
+              <li>Model performance on students enrolled for over 12 months has not been validated</li>
+            </ul>
+          </div>
+          <div>
+            <div class="callout red">The ~8% churn reduction should be treated as an observational estimate. Absent a holdout control group, confounding with other operational changes during the same period cannot be ruled out. A randomized outreach experiment is recommended before attributing the full effect to the model.</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /slide-viewport -->
+  </div><!-- /deck-body -->
+</div><!-- /deck -->
+
+<!-- ======================== DECK 2: DBT ======================== -->
+<div class="deck" id="deck2" style="margin-top:2px">
+  <div class="deck-header" onclick="toggleDeck('deck2')">
+    <div class="deck-num">02</div>
+    <div>
+      <div class="deck-header-title">Analytics Pipeline Architecture with dbt</div>
+      <div class="deck-header-sub">Data transformation &nbsp;|&nbsp; Three client engagements &nbsp;|&nbsp; Salesforce, Postgres, Google Sheets</div>
+    </div>
+    <div class="deck-chevron" id="deck2-chev">&#8964;</div>
+  </div>
+  <div class="deck-body" id="deck2-body">
+    <div class="slide-controls">
+      <button class="slide-ctrl-btn" id="deck2-prev" onclick="prevSlide('deck2')" disabled>Prev</button>
+      <div class="slide-progress">
+        <div class="slide-pips" id="deck2-pips"></div>
+        <span class="slide-count" id="deck2-count">1 / 5</span>
+      </div>
+      <button class="slide-ctrl-btn" id="deck2-next" onclick="nextSlide('deck2')">Next</button>
+    </div>
+    <div class="slide-viewport" id="deck2-vp">
+
+      <div class="slide active">
+        <div class="slide-label">Context</div>
+        <div class="slide-title">Consolidating Fragmented Data<br>into <em>Tested, Version-Controlled Layers</em></div>
+        <div class="two-col">
+          <div>
+            <p class="slide-body" style="margin-bottom:1rem">Three separate client engagements presented variants of the same underlying problem: operational data was distributed across incompatible systems, transformation logic lived in ad-hoc SQL scripts or spreadsheet formulas with no version control or automated testing, and downstream modeling and reporting consumed data from these untested sources.</p>
+            <p class="slide-body">In each case, a dbt Core project was introduced to consolidate sources, formalize transformation logic across clearly separated layers, and provide a testing and documentation framework that transferred to the client's internal team at the conclusion of the engagement.</p>
+          </div>
+          <div>
+            <div class="stat-box" style="margin-bottom:1rem">
+              <div class="stat-num">3</div>
+              <div class="stat-unit">Client engagements</div>
+              <div class="stat-note">Salesforce + Postgres + Google Sheets as the primary source combination across all three</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-num">4</div>
+              <div class="stat-unit">Pipeline layers</div>
+              <div class="stat-note">Sources, staging, intermediate, and marts, each with distinct materialization strategies</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-label">Architecture</div>
+        <div class="slide-title">Layer Separation and<br><em>Materialization Strategy</em></div>
+        <div class="pipeline">
+          <div class="pl-node"><div class="pl-name">Sources</div><div class="pl-sub">Raw, declared</div></div>
+          <div class="pl-node"><div class="pl-name">Staging</div><div class="pl-sub">Rename, cast, dedup</div></div>
+          <div class="pl-node active"><div class="pl-name">Intermediate</div><div class="pl-sub">Business logic joins</div></div>
+          <div class="pl-node"><div class="pl-name">Marts</div><div class="pl-sub">Looker-ready, wide</div></div>
+          <div class="pl-node"><div class="pl-name">Tests</div><div class="pl-sub">Schema + assertions</div></div>
+        </div>
+        <table class="dtable" style="margin-top:0.75rem">
+          <thead><tr><th>Layer</th><th>Materialization</th><th>Responsibility</th></tr></thead>
+          <tbody>
+            <tr><td>Staging</td><td><code>view</code></td><td>One model per source table; renames to snake_case, casts types, deduplicates via <code>row_number()</code></td></tr>
+            <tr><td>Intermediate</td><td><code>ephemeral</code> or <code>view</code></td><td>Cross-source joins; customer health scores, pipeline attribution, territory enrichment</td></tr>
+            <tr><td>Marts</td><td><code>table</code> (daily)</td><td>Denormalized, Looker-optimized; one row per business entity; tagged for downstream systems</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="slide">
+        <div class="slide-label">Source integration</div>
+        <div class="slide-title">Salesforce, Postgres, and<br><em>Google Sheets as Unified Sources</em></div>
+        <div class="two-col">
+          <div>
+            <p class="slide-body" style="margin-bottom:1rem">Each source presented distinct reliability and schema challenges. Salesforce objects arrived via Fivetran with non-deterministic sync timing and occasional duplicate rows from incremental syncs. Postgres transactional tables were structurally clean but required significant type coercion. Google Sheets, used by operations teams for manual territory mappings and targets, required a source freshness SLA configured at the source declaration level to flag stale manual updates before they propagated downstream.</p>
+          </div>
+          <div>
+            <ul class="blist">
+              <li>Salesforce: deduplication via <code>row_number() over (partition by id order by _fivetran_synced desc)</code> applied at every staging model</li>
+              <li>Postgres: <code>cast</code> applied uniformly at staging; no business logic introduced until intermediate layer</li>
+              <li>Google Sheets: <code>freshness</code> block with 24-hour warn threshold; staleness breaks the DAG before downstream models run</li>
+              <li>All source declarations in a single <code>sources.yml</code> with full column-level documentation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-label">Testing framework</div>
+        <div class="slide-title">Automated Testing Across<br><em>All Mart Models</em></div>
+        <div class="two-col">
+          <div>
+            <p class="slide-body" style="margin-bottom:1rem">Every mart model shipped with a <code>schema.yml</code> test suite covering structural integrity and business logic assertions. Generic tests (<code>unique</code>, <code>not_null</code>, <code>accepted_values</code>) handled structural coverage; singular tests written in SQL caught domain-specific violations that generic tests could not express.</p>
+            <div class="callout">Test coverage was a contractual deliverable in two of the three engagements. Clients retained the test suite after handoff as a regression harness for future pipeline modifications.</div>
+          </div>
+          <div>
+            <div class="slide-label" style="margin-bottom:0.75rem">Test categories</div>
+            <table class="dtable">
+              <thead><tr><th>Type</th><th>Examples</th></tr></thead>
+              <tbody>
+                <tr><td>Uniqueness</td><td>Primary key not duplicated across any mart grain</td></tr>
+                <tr><td>Not-null</td><td>All foreign keys and required business fields</td></tr>
+                <tr><td>Accepted values</td><td>Health segments, territory codes, status enumerations</td></tr>
+                <tr><td>Relationships</td><td>FK referential integrity between marts and staging</td></tr>
+                <tr><td>Expression</td><td><code>arr_usd >= 0</code>, <code>churn_date > enrollment_date</code></td></tr>
+                <tr><td>Freshness</td><td>Source tables updated within 24-hour SLA</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-label">Outcomes and handoff</div>
+        <div class="slide-title">Results and<br><em>Client Knowledge Transfer</em></div>
+        <div class="two-col">
+          <div>
+            <p class="slide-body" style="margin-bottom:1rem">In all three engagements, the primary downstream consumer of the mart layer was a Looker instance. The mart models were designed with Looker dimension and measure naming conventions in mind, reducing the volume of LookML that needed to be written against the marts. All column names, grain documentation, and test coverage were preserved in the dbt project for the client's internal data team.</p>
+            <ul class="blist">
+              <li>Eliminated reliance on ad-hoc SQL scripts running outside version control in all three cases</li>
+              <li>Looker dashboard development time reduced materially by consistent mart grain and naming</li>
+              <li>Quarterly dbt test runs integrated into CI pipelines in two engagements</li>
+              <li>Project documentation auto-generated via <code>dbt docs generate</code> served as the handoff artifact</li>
+            </ul>
+          </div>
+          <div>
+            <div class="callout teal">The dbt documentation site (generated from <code>schema.yml</code> descriptions) served as the primary technical handoff document. It includes lineage graphs, column-level descriptions, and test results, which the internal team could maintain and extend without re-engagement.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ======================== DECK 3: RENT ======================== -->
+<div class="deck" id="deck3" style="margin-top:2px">
+  <div class="deck-header" onclick="toggleDeck('deck3')">
+    <div class="deck-num">03</div>
+    <div>
+      <div class="deck-header-title">Rent Optimization via Gradient Boosting and Mispricing Detection</div>
+      <div class="deck-header-sub">Pricing model &nbsp;|&nbsp; Regional real estate firm &nbsp;|&nbsp; CV R² = 0.946</div>
+    </div>
+    <div class="deck-chevron" id="deck3-chev">&#8964;</div>
+  </div>
+  <div class="deck-body" id="deck3-body">
+    <div class="slide-controls">
+      <button class="slide-ctrl-btn" id="deck3-prev" onclick="prevSlide('deck3')" disabled>Prev</button>
+      <div class="slide-progress">
+        <div class="slide-pips" id="deck3-pips"></div>
+        <span class="slide-count" id="deck3-count">1 / 5</span>
+      </div>
+      <button class="slide-ctrl-btn" id="deck3-next" onclick="nextSlide('deck3')">Next</button>
+    </div>
+    <div class="slide-viewport" id="deck3-vp">
+
+      <div class="slide active">
+        <div class="slide-label">Problem statement</div>
+        <div class="slide-title">Systematic Mispricing in<br><em>Residential Portfolio Management</em></div>
+        <div class="two-col">
+          <div>
+            <p class="slide-body" style="margin-bottom:1rem">Manual rent-setting at scale produces predictable inefficiencies: a portion of the portfolio is priced above market equilibrium (generating vacancy drag), while another portion is priced below (forgoing attainable revenue). Neither condition is immediately observable without a market-clearing reference price against which to benchmark current listings.</p>
+            <p class="slide-body">The engagement objective was to train a model on observable property and market features capable of predicting market-clearing monthly rent, then use deviations from model estimates as actionable mispricing signals surfaced to non-technical property managers through a Looker dashboard.</p>
+          </div>
+          <div>
+            <div class="stat-box" style="margin-bottom:1rem">
+              <div class="stat-num">0.946</div>
+              <div class="stat-unit">Cross-validated R²</div>
+              <div class="stat-note">GBM vs. Ridge baseline at 0.800 (+14.6 pp)</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-num">$164</div>
+              <div class="stat-unit">MAE (monthly rent)</div>
+              <div class="stat-note">Mean absolute error on 5-fold CV across 2,000 listings, 5 metro markets</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-label">Feature set</div>
+        <div class="slide-title">Observable Listing and<br><em>Market-Level Predictors</em></div>
+        <p class="slide-body" style="margin-bottom:1.25rem">All features were sourced from the client's property management system and publicly available census and market data. No proprietary third-party data feeds were required, which was a stated constraint given the client's data vendor budget.</p>
+        <table class="dtable">
+          <thead><tr><th>Feature</th><th>Source</th><th>Role</th></tr></thead>
+          <tbody>
+            <tr><td>Square footage</td><td>PMS</td><td>Primary size signal; log-transformed in final model</td></tr>
+            <tr><td>Bedroom count</td><td>PMS</td><td>Categorical; unit type is a stronger signal than raw bedroom count above 3BR</td></tr>
+            <tr><td>Neighborhood demand score</td><td>Derived from listing velocity and days-on-market in submarket</td><td>Captures localized demand pressure not reflected in static census variables</td></tr>
+            <tr><td>Distance to city center</td><td>Google Maps API</td><td>Negative coefficient throughout; non-linear effect captured by GBM naturally</td></tr>
+            <tr><td>Metropolitan market</td><td>PMS</td><td>Categorical; Austin, Chicago, Denver, Nashville, Seattle in this dataset</td></tr>
+            <tr><td>Market segment</td><td>Client classification</td><td>Budget, mid-market, premium; interacts with size and location features</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="slide">
+        <div class="slide-label">Model performance</div>
+        <div class="slide-title">Gradient Boosting versus<br><em>Ridge Regression Baseline</em></div>
+        <div class="two-col">
+          <div>
+            <p class="slide-body" style="margin-bottom:1.25rem">A Ridge regression baseline was trained on the same feature set as the GBM to provide a linear benchmark. The GBM's improvement over Ridge was most pronounced in the premium segment, where non-linear interactions between square footage, location, and demand score account for a disproportionate share of price variation.</p>
+            <div class="bar-chart" style="margin-top:1rem">
+              <div class="bar-row">
+                <div class="bar-label">GBM (final)</div>
+                <div class="bar-track"><div class="bar-fill" style="width:94%;background:var(--accent)"></div></div>
+                <div class="bar-val">0.946</div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">Ridge baseline</div>
+                <div class="bar-track"><div class="bar-fill" style="width:80%;background:var(--ink-dim)"></div></div>
+                <div class="bar-val">0.800</div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">Random Forest</div>
+                <div class="bar-track"><div class="bar-fill" style="width:91%;background:var(--ink-mid)"></div></div>
+                <div class="bar-val">0.910</div>
+              </div>
+            </div>
+            <div class="footnote">CV R², 5-fold. GBM: LightGBM, 500 estimators, max depth 6, learning rate 0.05.</div>
+          </div>
+          <div>
+            <p class="slide-body" style="margin-bottom:1rem">The +14.6 percentage point gain over Ridge reflects the model's ability to capture:</p>
+            <ul class="blist">
+              <li>Non-linear distance decay (premium units closer to center command disproportionately higher rent)</li>
+              <li>Segment-by-market interaction effects not expressible in a linear form</li>
+              <li>Threshold effects in the demand score at high-demand submarkets</li>
+            </ul>
+            <div class="callout" style="margin-top:1rem">MAE of $164/month on a median rent of approximately $2,200 represents a 7.5% mean absolute percentage error, sufficient for mispricing detection at the 5% threshold used by the client.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-label">Mispricing detection</div>
+        <div class="slide-title">Operationalizing Model Estimates<br>as <em>Actionable Pricing Signals</em></div>
+        <div class="two-col">
+          <div>
+            <p class="slide-body" style="margin-bottom:1rem">A listing was classified as materially mispriced if its current asking rent deviated from the model estimate by more than 5% in either direction. The 5% threshold was calibrated against the model's MAE: at $164/month MAE, flagging deviations smaller than approximately $110 on a $2,200 listing would produce excessive false positives from model noise rather than true pricing gaps.</p>
+            <ul class="blist">
+              <li>Overpriced (above threshold): flag for rent reduction at next renewal opportunity</li>
+              <li>Underpriced (below threshold): flag for rent increase; demand score considered before recommendation</li>
+              <li>Within band: no action recommended; monitor quarterly</li>
+            </ul>
+          </div>
+          <div>
+            <div class="stat-box" style="margin-bottom:1rem">
+              <div class="stat-num">72%</div>
+              <div class="stat-unit">Listings flagged</div>
+              <div class="stat-note">51% priced above threshold; 20% below. Dataset: 2,000 synthetic listings</div>
+            </div>
+            <div class="callout red" style="margin-top:0">The high mispricing rate (72%) reflects the synthetic dataset construction and should not be interpreted as a realistic portfolio mispricing base rate. In production deployments, mispricing rates of 20 to 30% are more typical for portfolios without systematic pricing tools.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-label">Dashboard and handoff</div>
+        <div class="slide-title">Looker Dashboard for<br><em>Non-Technical Property Managers</em></div>
+        <div class="two-col">
+          <div>
+            <p class="slide-body" style="margin-bottom:1rem">The Looker dashboard was designed specifically for property managers with no quantitative background. The design principle was to surface conclusions, not model outputs: each listing shows a mispricing status (overpriced, underpriced, or within band), the recommended adjustment in dollar terms, and an estimated occupancy impact, without exposing the underlying model mechanics.</p>
+            <ul class="blist">
+              <li>Segment, market, and property type filters allow managers to focus on their assigned properties</li>
+              <li>Revenue impact is expressed as annualized dollars, not percentages, per manager feedback during testing</li>
+              <li>Demand score is shown as a percentile rank within submarket rather than as a raw score</li>
+              <li>Model version and last-refresh timestamp displayed on every view to maintain trust in data currency</li>
+            </ul>
+          </div>
+          <div>
+            <div class="callout teal">The self-service dashboard eliminated a weekly reporting process where analysts prepared individual market summaries for manager review. Managers reported using the dashboard to make independent repricing decisions within the first month of deployment, which was the primary adoption milestone defined at engagement outset.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ======================== DECK 4: GPT-4 ======================== -->
+<div class="deck" id="deck4" style="margin-top:2px">
+  <div class="deck-header" onclick="toggleDeck('deck4')">
+    <div class="deck-num">04</div>
+    <div>
+      <div class="deck-header-title">LLM-Automated Portfolio Narrative Generation</div>
+      <div class="deck-header-sub">GPT-4 API &nbsp;|&nbsp; Financial services client &nbsp;|&nbsp; Monthly reporting workflow</div>
+    </div>
+    <div class="deck-chevron" id="deck4-chev">&#8964;</div>
+  </div>
+  <div class="deck-body" id="deck4-body">
+    <div class="slide-controls">
+      <button class="slide-ctrl-btn" id="deck4-prev" onclick="prevSlide('deck4')" disabled>Prev</button>
+      <div class="slide-progress">
+        <div class="slide-pips" id="deck4-pips"></div>
+        <span class="slide-count" id="deck4-count">1 / 5</span>
+      </div>
+      <button class="slide-ctrl-btn" id="deck4-next" onclick="nextSlide('deck4')">Next</button>
+    </div>
+    <div class="slide-viewport" id="deck4-vp">
+
+      <div class="slide active">
+        <div class="slide-label">Engagement context</div>
+        <div class="slide-title">Automating Plain-Language Translation<br>of <em>Quantitative Portfolio Reports</em></div>
+        <div class="two-col">
+          <div>
+            <p class="slide-body" style="margin-bottom:1rem">A financial services client produced monthly portfolio performance reports consumed primarily by non-quantitative leadership: board members, senior relationship managers, and operations staff without a modeling background. A quant analyst was spending 6 to 8 hours per monthly cycle manually translating model outputs and performance metrics into narrative prose, producing a document that leadership could read without interpreting raw numbers.</p>
+            <p class="slide-body">The client identified this translation step as both a bottleneck and a source of inconsistency, as narrative framing varied by analyst. The engagement objective was to automate this translation using the GPT-4 API while preserving factual accuracy, regulatory conservatism, and firm-specific terminology.</p>
+          </div>
+          <div>
+            <div class="stat-box" style="margin-bottom:1rem">
+              <div class="stat-num">&lt;20m</div>
+              <div class="stat-unit">End-to-end runtime</div>
+              <div class="stat-note">From data refresh to narrative PDF delivery, including human review step</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-num">6 to 8h</div>
+              <div class="stat-unit">Prior monthly cost</div>
+              <div class="stat-note">Senior analyst time per monthly cycle, now redirected to higher-value analysis</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-label">System design</div>
+        <div class="slide-title">Pipeline Architecture and<br><em>Prompt Engineering Approach</em></div>
+        <div class="two-col">
+          <div>
+            <p class="slide-body" style="margin-bottom:1rem">The pipeline accepts a structured Python dictionary of monthly metrics as input and returns a four-section narrative document: performance summary, attribution analysis, risk commentary, and forward outlook. Each section is generated in a separate API call to allow independent human review and to avoid context length constraints on the full document.</p>
+            <ul class="blist">
+              <li>System prompt encodes firm-specific terminology, risk appetite language, and the set of claims that require explicit hedging</li>
+              <li>Temperature set to 0.2 for factual stability; tested at 0.0 and 0.4 with 0.2 chosen as the balance point between variance and naturalness</li>
+              <li>Chain-of-thought instruction in the prompt: model is asked to derive narrative from the data provided rather than from pattern-matched financial boilerplate</li>
+              <li>Explicit instruction to flag anomalies in the data rather than smooth over them in narrative</li>
+            </ul>
+          </div>
+          <div>
+            <div class="slide-label" style="margin-bottom:0.75rem">Data flow</div>
+            <table class="dtable">
+              <thead><tr><th>Step</th><th>Description</th></tr></thead>
+              <tbody>
+                <tr><td>1. Data extraction</td><td>Monthly metrics dict constructed from portfolio database query</td></tr>
+                <tr><td>2. Prompt assembly</td><td>Metrics injected into structured prompt template</td></tr>
+                <tr><td>3. API calls (4x)</td><td>One call per narrative section; parallel execution</td></tr>
+                <tr><td>4. Human review</td><td>Analyst reviews output; average review time under 20 minutes</td></tr>
+                <tr><td>5. PDF generation</td><td>Approved sections assembled into formatted report</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-label">Prompt design</div>
+        <div class="slide-title">Engineering for Factual Accuracy<br>in a <em>Regulated Context</em></div>
+        <div class="two-col">
+          <div>
+            <p class="slide-body" style="margin-bottom:1rem">Financial narrative is not a domain where generative fluency is the primary risk. The primary risks are factual inaccuracy (wrong numbers in narrative), regulatory overreach (unqualified forward-looking statements), and tone inconsistency. The prompt engineering effort was concentrated on controlling these failure modes rather than on stylistic quality.</p>
+            <div class="callout" style="margin-top:1rem">The single highest-value prompt engineering decision was explicit instruction to flag input data anomalies rather than silently incorporate them into narrative. In the first production run, the model correctly surfaced a data entry error in the attribution table rather than generating a narrative that would have been factually wrong.</div>
+          </div>
+          <div>
+            <div class="slide-label" style="margin-bottom:0.75rem">Key prompt constraints</div>
+            <ul class="blist">
+              <li>All numerical claims must cite the specific input field they derive from (traceability requirement)</li>
+              <li>Forward-looking statements must be framed as conditional on stated assumptions, never as predictions</li>
+              <li>Regulatory trigger phrases ("guaranteed", "will", "expected to") are explicitly forbidden in the prompt</li>
+              <li>Any input metric outside two standard deviations of the prior 12-month range must be flagged for analyst review rather than incorporated silently</li>
+              <li>Firm-specific terminology glossary injected into system prompt; model instructed to use client terms only</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-label">Evaluation methodology</div>
+        <div class="slide-title">Measuring Output Quality<br>and <em>Factual Fidelity</em></div>
+        <div class="two-col">
+          <div>
+            <p class="slide-body" style="margin-bottom:1rem">LLM outputs in financial contexts require a more rigorous evaluation framework than subjective quality assessment. A scoring rubric was developed with the client's compliance team covering four dimensions: numerical accuracy, regulatory language compliance, terminology adherence, and narrative completeness. Each section was scored against the rubric before the pipeline was approved for production use.</p>
+            <table class="dtable" style="margin-top:0.75rem">
+              <thead><tr><th>Dimension</th><th>Pass criterion</th></tr></thead>
+              <tbody>
+                <tr><td>Numerical accuracy</td><td>All cited figures match input dict exactly</td></tr>
+                <tr><td>Regulatory language</td><td>Zero instances of prohibited forward-looking phrasing</td></tr>
+                <tr><td>Terminology</td><td>Client glossary terms used; no external synonyms</td></tr>
+                <tr><td>Completeness</td><td>All required sections present per reporting template</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <div class="bar-chart" style="margin-bottom:1.25rem">
+              <div class="bar-row">
+                <div class="bar-label">Numerical accuracy</div>
+                <div class="bar-track"><div class="bar-fill" style="width:98%;background:var(--teal)"></div></div>
+                <div class="bar-val">98%</div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">Reg. compliance</div>
+                <div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--teal)"></div></div>
+                <div class="bar-val">100%</div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">Terminology</div>
+                <div class="bar-track"><div class="bar-fill" style="width:94%;background:var(--teal)"></div></div>
+                <div class="bar-val">94%</div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">Completeness</div>
+                <div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--teal)"></div></div>
+                <div class="bar-val">100%</div>
+              </div>
+            </div>
+            <div class="footnote">Scores from rubric evaluation across 6 test reports prior to production approval. 2% numerical accuracy failures concentrated in one edge case (negative returns displayed as absolute values) corrected in prompt v3.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-label">Results and limitations</div>
+        <div class="slide-title">Deployment Outcomes<br>and <em>Known Constraints</em></div>
+        <div class="two-col">
+          <div>
+            <div class="three-col" style="margin-bottom:1.25rem">
+              <div class="stat-box"><div class="stat-num">&lt;20m</div><div class="stat-unit">Cycle time</div></div>
+              <div class="stat-box"><div class="stat-num">100%</div><div class="stat-unit">Format consistency</div></div>
+              <div class="stat-box"><div class="stat-num">0</div><div class="stat-unit">Reg. violations</div></div>
+            </div>
+            <p class="slide-body">The client described the automation as the most significant improvement to their analytical consumption workflow since the reporting function was established. The human review step was retained as a contractual and regulatory requirement, not as a quality hedge. Average analyst review time fell from 6 to 8 hours to under 20 minutes per cycle.</p>
+          </div>
+          <div>
+            <div class="slide-label" style="margin-bottom:0.5rem">Documented limitations</div>
+            <ul class="blist">
+              <li>Pipeline depends on data structure remaining consistent; schema changes to the input dict require prompt updates and re-evaluation</li>
+              <li>Model behavior on novel market conditions (no recent historical analog) has not been tested; human review is the control for this risk</li>
+              <li>Terminology adherence at 94% reflects occasional use of near-synonyms not in the glossary; active monitoring recommended</li>
+              <li>GPT-4 API cost scales linearly with report length; current cost is immaterial but should be reviewed if report volume increases substantially</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ======================== DECK 5: LLM BENCHMARK ======================== -->
+<div class="deck" id="deck5" style="margin-top:2px">
+  <div class="deck-header" onclick="toggleDeck('deck5')">
+    <div class="deck-num">05</div>
+    <div>
+      <div class="deck-header-title">LLM Fine-Tuning versus Retrieval-Augmented Classification</div>
+      <div class="deck-header-sub">Architecture evaluation &nbsp;|&nbsp; Document classification &nbsp;|&nbsp; LoRA, prompt-tuning, embedding retrieval</div>
+    </div>
+    <div class="deck-chevron" id="deck5-chev">&#8964;</div>
+  </div>
+  <div class="deck-body" id="deck5-body">
+    <div class="slide-controls">
+      <button class="slide-ctrl-btn" id="deck5-prev" onclick="prevSlide('deck5')" disabled>Prev</button>
+      <div class="slide-progress">
+        <div class="slide-pips" id="deck5-pips"></div>
+        <span class="slide-count" id="deck5-count">1 / 5</span>
+      </div>
+      <button class="slide-ctrl-btn" id="deck5-next" onclick="nextSlide('deck5')">Next</button>
+    </div>
+    <div class="slide-viewport" id="deck5-vp">
+
+      <div class="slide active">
+        <div class="slide-label">Evaluation objective</div>
+        <div class="slide-title">Selecting an LLM Architecture<br>for <em>Internal Document Classification</em></div>
+        <div class="two-col">
+          <div>
+            <p class="slide-body" style="margin-bottom:1rem">A client with a large internal document corpus required an automated classification system capable of assigning documents to a predefined taxonomy of approximately 40 categories. Three candidate architectures were evaluated: LoRA fine-tuning of a 7B parameter base model, prompt-tuning via soft prefix injection, and embedding-based retrieval classification using a frozen encoder and a labeled reference index.</p>
+            <p class="slide-body">The evaluation framework prioritized classification accuracy on a held-out test set, total infrastructure cost over a 12-month horizon, operational complexity of the production deployment, and the architecture's ability to incorporate new document categories without retraining.</p>
+          </div>
+          <div>
+            <div class="stat-box" style="margin-bottom:1rem">
+              <div class="stat-num">3</div>
+              <div class="stat-unit">Architectures evaluated</div>
+              <div class="stat-note">LoRA, prompt-tuning, and embedding-based retrieval</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-num">40</div>
+              <div class="stat-unit">Document categories</div>
+              <div class="stat-note">Taxonomy defined by client; categories ranged from high-frequency to rare (&lt;10 examples)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-label">Architecture descriptions</div>
+        <div class="slide-title">Candidate Systems<br>and <em>Design Characteristics</em></div>
+        <table class="dtable">
+          <thead><tr><th>Architecture</th><th>Mechanism</th><th>Training requirement</th><th>Serving requirement</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>LoRA fine-tuning</td>
+              <td>Low-rank adapter matrices attached to frozen base model layers; full gradient computation during training</td>
+              <td>GPU training run; labeled examples required for all categories</td>
+              <td>Custom inference endpoint with LoRA weights loaded; standard transformer serving</td>
+            </tr>
+            <tr>
+              <td>Prompt-tuning</td>
+              <td>Learnable soft tokens prepended to input; only prefix vectors optimized during training</td>
+              <td>Lighter than LoRA; requires labeled data but fewer gradient steps</td>
+              <td>API-compatible if provider supports prefix injection; otherwise requires self-hosted endpoint</td>
+            </tr>
+            <tr>
+              <td>Embedding retrieval</td>
+              <td>Documents and query encoded into shared vector space; classify by nearest-neighbor vote in labeled index</td>
+              <td>No training; index construction from labeled examples only</td>
+              <td>Vector database (pgvector) plus embedding API calls; no GPU required</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="slide">
+        <div class="slide-label">Benchmark results</div>
+        <div class="slide-title">Accuracy, Cost, and Complexity<br><em>Comparison</em></div>
+        <div class="two-col">
+          <div>
+            <div class="bar-chart" style="margin-bottom:1.25rem">
+              <div style="font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:8px">Classification accuracy (test set, 40 categories)</div>
+              <div class="bar-row">
+                <div class="bar-label">Embedding retrieval</div>
+                <div class="bar-track"><div class="bar-fill" style="width:89%;background:var(--teal)"></div></div>
+                <div class="bar-val">89%</div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">LoRA fine-tuning</div>
+                <div class="bar-track"><div class="bar-fill" style="width:84%;background:var(--ink-mid)"></div></div>
+                <div class="bar-val">84%</div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">Prompt-tuning</div>
+                <div class="bar-track"><div class="bar-fill" style="width:76%;background:var(--ink-dim)"></div></div>
+                <div class="bar-val">76%</div>
+              </div>
+            </div>
+            <div class="bar-chart">
+              <div style="font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:8px">Estimated 12-month infrastructure cost (relative index)</div>
+              <div class="bar-row">
+                <div class="bar-label">Embedding retrieval</div>
+                <div class="bar-track"><div class="bar-fill" style="width:18%;background:var(--teal)"></div></div>
+                <div class="bar-val">18</div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">Prompt-tuning</div>
+                <div class="bar-track"><div class="bar-fill" style="width:55%;background:var(--ink-mid)"></div></div>
+                <div class="bar-val">55</div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">LoRA fine-tuning</div>
+                <div class="bar-track"><div class="bar-fill" style="width:92%;background:var(--ink-dim)"></div></div>
+                <div class="bar-val">92</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="verdict rec" style="margin-bottom:0.75rem">Recommended: embedding retrieval</div>
+            <p class="slide-body" style="margin-bottom:1rem">Embedding retrieval produced the highest accuracy on this task while requiring substantially lower infrastructure investment. The result is counterintuitive relative to the common assumption that fine-tuning approaches should outperform retrieval on narrow classification tasks, and merits explanation.</p>
+            <div class="callout teal">The retrieval architecture outperformed LoRA primarily because the classification task is not stylistically novel: the 40 document categories are well-represented in the base model's pretraining data, so the embedding space already separates them effectively. Fine-tuning yields the largest gains on tasks requiring domain adaptation the base model has not seen; this task did not qualify.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-label">Retrieval architecture details</div>
+        <div class="slide-title">Embedding Index Design<br>and <em>Classification Logic</em></div>
+        <div class="two-col">
+          <div>
+            <p class="slide-body" style="margin-bottom:1rem">The reference index was built from a labeled set of 15 to 25 examples per category, embedded using <code>text-embedding-3-small</code> and stored in a Postgres table with the <code>pgvector</code> extension. At inference time, the query document is embedded and the top-5 nearest neighbors are retrieved by cosine similarity. Category assignment follows a weighted majority vote, with distance-weighted votes giving higher confidence to closer neighbors.</p>
+            <ul class="blist">
+              <li>Index contains approximately 800 labeled examples across 40 categories (mean: 20 per category)</li>
+              <li>Rare categories with under 10 examples were augmented with lightly paraphrased variants; augmented examples are flagged and excluded from accuracy evaluation</li>
+              <li>Confidence threshold of 0.65 (weighted vote share) required for automatic classification; below-threshold documents routed to human review queue</li>
+              <li>New categories added by appending labeled examples to the index; no retraining or redeployment required</li>
+            </ul>
+          </div>
+          <div>
+            <div class="callout teal" style="margin-bottom:1rem">The zero-retraining property of the retrieval architecture was the decisive factor in the client recommendation. The document taxonomy evolves as regulatory requirements change; LoRA fine-tuning would require a retraining cycle and model validation for every taxonomy update. The retrieval approach required only adding examples to the index.</div>
+            <table class="dtable">
+              <thead><tr><th>Property</th><th>Retrieval</th><th>LoRA</th></tr></thead>
+              <tbody>
+                <tr><td>New category addition</td><td>Append examples</td><td>Full retrain</td></tr>
+                <tr><td>Audit trail</td><td>Retrieved neighbors visible</td><td>Black box</td></tr>
+                <tr><td>GPU required</td><td>No</td><td>Yes</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-label">Recommendation rationale</div>
+        <div class="slide-title">Decision Framework and<br><em>Architectural Trade-offs</em></div>
+        <div class="two-col">
+          <div>
+            <div class="verdict rec" style="margin-bottom:1rem">Embedding retrieval: recommended</div>
+            <p class="slide-body" style="margin-bottom:0.75rem">The recommendation is based on four factors considered jointly: accuracy, cost, operational complexity, and adaptability to taxonomy change. Retrieval dominates on all four dimensions for this specific task.</p>
+            <div class="callout teal">The general conclusion should not be overgeneralized. LoRA fine-tuning remains the superior choice for tasks requiring stylistic adaptation (clinical note summarization, domain-specific code generation, specialized translation) where the base model's embedding space does not already separate the target categories. The evaluation outcome here is task-specific.</div>
+          </div>
+          <div>
+            <div class="verdict out" style="margin-bottom:0.75rem">LoRA: not recommended for this task</div>
+            <p class="slide-body" style="margin-bottom:1rem">Lower accuracy than retrieval despite substantially higher cost. GPU training infrastructure and model serving endpoint represent ongoing operational burden without compensating accuracy benefit on this particular classification taxonomy.</p>
+            <div class="verdict out" style="margin-bottom:0.75rem">Prompt-tuning: not recommended</div>
+            <p class="slide-body">Lowest accuracy of the three approaches. The soft prefix approach did not produce meaningful task adaptation compared to zero-shot prompting, suggesting the 40-category taxonomy was either too broad for soft prompt capacity or that the labeled set was insufficient to learn a useful prefix representation.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div style="margin-top:3rem;padding-top:2rem;border-top:0.5px solid var(--rule)">
+  <div class="label" style="margin-bottom:0.5rem">Manohar Analytics Consulting</div>
+  <p style="font-size:12px;color:var(--ink-dim);line-height:1.6">Independent data science and machine learning consulting. New York, NY. Engagements in predictive modeling, data infrastructure, and analytical automation for startups and mid-sized companies.</p>
+</div>
+
+<script>
+/* ---- DECK TOGGLE ---- */
+function toggleDeck(id) {
+  const body = document.getElementById(id + '-body');
+  const chev = document.getElementById(id + '-chev');
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open', !isOpen);
+  chev.classList.toggle('open', !isOpen);
+  if (!isOpen) initDeck(id);
+}
+
+/* ---- SLIDE SYSTEM ---- */
+const deckState = {};
+
+function initDeck(id) {
+  if (deckState[id]) return;
+  const slides = document.querySelectorAll('#' + id + '-vp .slide');
+  deckState[id] = { current: 0, total: slides.length };
+  buildPips(id);
+  updateControls(id);
+}
+
+function buildPips(id) {
+  const s = deckState[id];
+  const container = document.getElementById(id + '-pips');
+  container.innerHTML = '';
+  for (let i = 0; i < s.total; i++) {
+    const pip = document.createElement('div');
+    pip.className = 'pip' + (i === 0 ? ' active' : '');
+    pip.onclick = (function(idx) { return function() { goToSlide(id, idx); }; })(i);
+    container.appendChild(pip);
+  }
+}
+
+function goToSlide(id, n) {
+  const s = deckState[id];
+  const slides = document.querySelectorAll('#' + id + '-vp .slide');
+  slides[s.current].classList.remove('active');
+  s.current = n;
+  slides[s.current].classList.add('active');
+  updateControls(id);
+}
+
+function nextSlide(id) {
+  const s = deckState[id];
+  if (s.current < s.total - 1) goToSlide(id, s.current + 1);
+}
+
+function prevSlide(id) {
+  const s = deckState[id];
+  if (s.current > 0) goToSlide(id, s.current - 1);
+}
+
+function updateControls(id) {
+  const s = deckState[id];
+  document.getElementById(id + '-prev').disabled = s.current === 0;
+  document.getElementById(id + '-next').disabled = s.current === s.total - 1;
+  document.getElementById(id + '-count').textContent = (s.current + 1) + ' / ' + s.total;
+  document.querySelectorAll('#' + id + '-pips .pip').forEach(function(p, i) {
+    p.classList.toggle('active', i === s.current);
+  });
+}
+</script>
+
+</body>
+</html>
