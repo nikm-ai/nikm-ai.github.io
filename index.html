@@ -530,7 +530,7 @@ code {
   <div class="label" style="margin-bottom:0.5rem">Manohar Analytics Consulting</div>
   <div class="hero-name">Nik Manohar<br><em>Quantitative Data Science</em></div>
   <p class="hero-bio">
-    Eight years of applied research and production modeling across consumer technology, institutional asset management, litigation economics, and independent consulting. Engagements cover the full analytical pipeline: feature engineering, model development and validation, data infrastructure, and stakeholder-facing reporting. Technical fluency in <strong>Python, SQL, dbt, and Looker</strong>; domain experience in customer analytics, risk modeling, and LLM system design. New York, NY.
+    Eight years of applied research and production modeling across consumer technology, institutional asset management, litigation economics, and an independent consulting practice. Engagements span the full analytical pipeline: feature engineering, model development and validation, data infrastructure, and stakeholder-facing reporting. Technical fluency in <strong>Python, SQL, dbt, and Looker</strong>. Domain depth in customer analytics, risk modeling, and LLM system design. New York, NY.
   </p>
   <div class="hero-contact">
     <a class="hero-link" href="mailto:nikhilmanohar94@gmail.com">
@@ -553,6 +553,21 @@ code {
 <!-- ================================================ WORK HEADER ================================================ -->
 <div class="label" style="margin-bottom:0.5rem">Selected Work &amp; Applications</div>
 <p class="lede" style="margin-bottom:1.75rem">Client engagements and research tools in predictive modeling, data pipeline architecture, machine learning evaluation, and analytical automation.</p>
+
+<!-- ================================================ ENGAGEMENTS ================================================ -->
+<div class="section-head">
+  <span class="label">Engagements</span>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;border:0.5px solid var(--rule);border-radius:4px;overflow:hidden;background:var(--rule);margin-bottom:2.5rem">
+  <div style="background:var(--paper-2);padding:1.25rem 1.5rem">
+    <div class="label" style="margin-bottom:0.6rem">Scope</div>
+    <p style="font-size:13px;color:var(--ink-mid);line-height:1.7">Scoped projects (4&#8211;12 weeks) and ongoing retainer arrangements. Prior engagements have covered end-to-end model development, data infrastructure build-outs, BI layer design, and LLM pipeline evaluation. Deliverables are documented and built for internal team handoff.</p>
+  </div>
+  <div style="background:var(--paper-2);padding:1.25rem 1.5rem">
+    <div class="label" style="margin-bottom:0.6rem">Areas of practice</div>
+    <p style="font-size:13px;color:var(--ink-mid);line-height:1.7">Predictive modeling and classification. Customer analytics and retention. Data pipeline architecture (dbt, Snowflake, Redshift). LLM integration and evaluation. Looker dashboard development and LookML authoring. Causal inference and experimentation.</p>
+  </div>
+</div>
 
 <hr class="rule" style="margin-top:0">
 
@@ -626,7 +641,7 @@ code {
     <div class="deck-num">01</div>
     <div>
       <div class="deck-header-title">Customer Churn Prediction via Behavioral Feature Engineering</div>
-      <div class="deck-header-sub">XGBoost classification &nbsp;|&nbsp; Tutoring platform &nbsp;|&nbsp; 81% holdout recall</div>
+      <div class="deck-header-sub">XGBoost &nbsp;|&nbsp; EdTech / tutoring platform &nbsp;|&nbsp; 81% holdout recall &nbsp;|&nbsp; ~8% churn reduction</div>
     </div>
     <div class="deck-chevron" id="deck1-chev">&#8964;</div>
   </div>
@@ -646,7 +661,7 @@ code {
         <div class="slide-title">Predicting 90-Day Churn<br>from <em>Behavioral Engagement Signals</em></div>
         <div class="two-col">
           <div>
-            <p class="slide-body">A tutoring platform was experiencing elevated 90-day churn rates with no systematic early-warning capability. Support teams operated reactively, contacting students only after cancellation intent had been expressed. The objective was to develop a predictive model capable of surfacing at-risk students during the engagement window when intervention remains viable, and to rank-order the at-risk population to allow targeted outreach prioritization under limited staff capacity.</p>
+            <p class="slide-body">A tutoring platform was experiencing elevated 90-day churn rates with no systematic early-warning capability. Support teams operated reactively, contacting students only after cancellation intent had been expressed. The objective was to build a classifier capable of identifying at-risk students before cancellation intent was expressed, and to rank the at-risk population by predicted churn probability to focus outreach effort under constrained staff capacity.</p>
           </div>
           <div>
             <div class="stat-box" style="margin-bottom:1rem">
@@ -806,7 +821,7 @@ code {
     <div class="deck-num">02</div>
     <div>
       <div class="deck-header-title">Analytics Pipeline Architecture with dbt</div>
-      <div class="deck-header-sub">Data transformation &nbsp;|&nbsp; Three client engagements &nbsp;|&nbsp; Salesforce, Postgres, Google Sheets</div>
+      <div class="deck-header-sub">dbt Core &nbsp;|&nbsp; SaaS / B2B clients &nbsp;|&nbsp; Salesforce, Postgres, Google Sheets &nbsp;|&nbsp; Looker</div>
     </div>
     <div class="deck-chevron" id="deck2-chev">&#8964;</div>
   </div>
@@ -826,7 +841,7 @@ code {
         <div class="slide-title">Consolidating Fragmented Data<br>into <em>Tested, Version-Controlled Layers</em></div>
         <div class="two-col">
           <div>
-            <p class="slide-body" style="margin-bottom:1rem">Three separate client engagements presented variants of the same underlying problem: operational data was distributed across incompatible systems, transformation logic lived in ad-hoc SQL scripts or spreadsheet formulas with no version control or automated testing, and downstream modeling and reporting consumed data from these untested sources.</p>
+            <p class="slide-body" style="margin-bottom:1rem">Three client engagements presented the same structural problem: operational data distributed across incompatible systems, transformation logic embedded in ad-hoc SQL scripts or spreadsheet formulas with no version control or automated testing, and downstream modeling and reporting dependent on those untested sources.</p>
             <p class="slide-body">In each case, a dbt Core project was introduced to consolidate sources, formalize transformation logic across clearly separated layers, and provide a testing and documentation framework that transferred to the client's internal team at the conclusion of the engagement.</p>
           </div>
           <div>
@@ -915,7 +930,7 @@ code {
             <p class="slide-body" style="margin-bottom:1rem">In all three engagements, the primary downstream consumer of the mart layer was a Looker instance. The mart models were designed with Looker dimension and measure naming conventions in mind, reducing the volume of LookML that needed to be written against the marts. All column names, grain documentation, and test coverage were preserved in the dbt project for the client's internal data team.</p>
             <ul class="blist">
               <li>Eliminated reliance on ad-hoc SQL scripts running outside version control in all three cases</li>
-              <li>Looker dashboard development time reduced materially by consistent mart grain and naming</li>
+              <li>Looker dashboard development time reduced by consistent mart grain and column naming conventions</li>
               <li>Quarterly dbt test runs integrated into CI pipelines in two engagements</li>
               <li>Project documentation auto-generated via <code>dbt docs generate</code> served as the handoff artifact</li>
             </ul>
@@ -936,7 +951,7 @@ code {
     <div class="deck-num">03</div>
     <div>
       <div class="deck-header-title">Rent Optimization via Gradient Boosting and Mispricing Detection</div>
-      <div class="deck-header-sub">Pricing model &nbsp;|&nbsp; Regional real estate firm &nbsp;|&nbsp; CV R² = 0.946</div>
+      <div class="deck-header-sub">LightGBM &nbsp;|&nbsp; Residential real estate &nbsp;|&nbsp; CV R² = 0.946 &nbsp;|&nbsp; MAE $164/mo</div>
     </div>
     <div class="deck-chevron" id="deck3-chev">&#8964;</div>
   </div>
@@ -957,7 +972,7 @@ code {
         <div class="two-col">
           <div>
             <p class="slide-body" style="margin-bottom:1rem">Manual rent-setting at scale produces predictable inefficiencies: a portion of the portfolio is priced above market equilibrium (generating vacancy drag), while another portion is priced below (forgoing attainable revenue). Neither condition is immediately observable without a market-clearing reference price against which to benchmark current listings.</p>
-            <p class="slide-body">The engagement objective was to train a model on observable property and market features capable of predicting market-clearing monthly rent, then use deviations from model estimates as actionable mispricing signals surfaced to non-technical property managers through a Looker dashboard.</p>
+            <p class="slide-body">The engagement objective was to train a model on observable property and market features capable of predicting market-clearing monthly rent, then use signed deviations from model estimates as pricing signals, surfaced to non-technical property managers through a Looker dashboard.</p>
           </div>
           <div>
             <div class="stat-box" style="margin-bottom:1rem">
@@ -977,7 +992,7 @@ code {
       <div class="slide">
         <div class="slide-label">Feature set</div>
         <div class="slide-title">Observable Listing and<br><em>Market-Level Predictors</em></div>
-        <p class="slide-body" style="margin-bottom:1.25rem">All features were sourced from the client's property management system and publicly available census and market data. No proprietary third-party data feeds were required, which was a stated constraint given the client's data vendor budget.</p>
+        <p class="slide-body" style="margin-bottom:1.25rem">All features were sourced from the client's property management system, comparable transaction data, and publicly available census variables. No proprietary third-party data feeds were used, consistent with the client's data vendor budget constraint.</p>
         <table class="dtable">
           <thead><tr><th>Feature</th><th>Source</th><th>Role</th></tr></thead>
           <tbody>
@@ -1065,7 +1080,7 @@ code {
             </ul>
           </div>
           <div>
-            <div class="callout teal">The self-service dashboard eliminated a weekly reporting process where analysts prepared individual market summaries for manager review. Managers reported using the dashboard to make independent repricing decisions within the first month of deployment, which was the primary adoption milestone defined at engagement outset.</div>
+            <div class="callout teal">The dashboard eliminated a weekly analyst-prepared market summary process. Within the first month of deployment, property managers were making independent repricing decisions without analyst involvement, the adoption milestone specified at engagement outset.</div>
           </div>
         </div>
       </div>
@@ -1080,7 +1095,7 @@ code {
     <div class="deck-num">04</div>
     <div>
       <div class="deck-header-title">LLM-Automated Portfolio Narrative Generation</div>
-      <div class="deck-header-sub">GPT-4 API &nbsp;|&nbsp; Financial services client &nbsp;|&nbsp; Monthly reporting workflow</div>
+      <div class="deck-header-sub">GPT-4 API &nbsp;|&nbsp; Financial services &nbsp;|&nbsp; 6&#8211;8h cycle reduced to &lt;20m</div>
     </div>
     <div class="deck-chevron" id="deck4-chev">&#8964;</div>
   </div>
@@ -1101,7 +1116,7 @@ code {
         <div class="two-col">
           <div>
             <p class="slide-body" style="margin-bottom:1rem">A financial services client produced monthly portfolio performance reports consumed primarily by non-quantitative leadership: board members, senior relationship managers, and operations staff without a modeling background. A quant analyst was spending 6 to 8 hours per monthly cycle manually translating model outputs and performance metrics into narrative prose, producing a document that leadership could read without interpreting raw numbers.</p>
-            <p class="slide-body">The client identified this translation step as both a bottleneck and a source of inconsistency, as narrative framing varied by analyst. The engagement objective was to automate this translation using the GPT-4 API while preserving factual accuracy, regulatory conservatism, and firm-specific terminology.</p>
+            <p class="slide-body">The translation step was a bottleneck: 6 to 8 analyst-hours per monthly cycle, with narrative framing that varied across analysts. The engagement objective was to automate this step using the GPT-4 API, preserving factual accuracy, regulatory conservatism, and firm-specific terminology.</p>
           </div>
           <div>
             <div class="stat-box" style="margin-bottom:1rem">
@@ -1112,7 +1127,7 @@ code {
             <div class="stat-box">
               <div class="stat-num">6 to 8h</div>
               <div class="stat-unit">Prior monthly cost</div>
-              <div class="stat-note">Senior analyst time per monthly cycle, now redirected to higher-value analysis</div>
+              <div class="stat-note">Senior analyst time per monthly cycle, recovered for higher-order analytical work</div>
             </div>
           </div>
         </div>
@@ -1246,7 +1261,7 @@ code {
     <div class="deck-num">05</div>
     <div>
       <div class="deck-header-title">LLM Fine-Tuning versus Retrieval-Augmented Classification</div>
-      <div class="deck-header-sub">Architecture evaluation &nbsp;|&nbsp; Document classification &nbsp;|&nbsp; LoRA, prompt-tuning, embedding retrieval</div>
+      <div class="deck-header-sub">LLM architecture evaluation &nbsp;|&nbsp; Enterprise document classification &nbsp;|&nbsp; LoRA vs. retrieval</div>
     </div>
     <div class="deck-chevron" id="deck5-chev">&#8964;</div>
   </div>
@@ -1356,8 +1371,8 @@ code {
           </div>
           <div>
             <div class="verdict rec" style="margin-bottom:0.75rem">Recommended: embedding retrieval</div>
-            <p class="slide-body" style="margin-bottom:1rem">Embedding retrieval produced the highest accuracy on this task while requiring substantially lower infrastructure investment. The result is counterintuitive relative to the common assumption that fine-tuning approaches should outperform retrieval on narrow classification tasks, and merits explanation.</p>
-            <div class="callout teal">The retrieval architecture outperformed LoRA primarily because the classification task is not stylistically novel: the 40 document categories are well-represented in the base model's pretraining data, so the embedding space already separates them effectively. Fine-tuning yields the largest gains on tasks requiring domain adaptation the base model has not seen; this task did not qualify.</div>
+            <p class="slide-body" style="margin-bottom:1rem">Embedding retrieval produced the highest accuracy while requiring substantially lower infrastructure investment. The result runs counter to the common assumption that fine-tuning should outperform retrieval on narrow classification tasks; the explanation lies in the nature of the task itself.</p>
+            <div class="callout teal">The retrieval architecture outperformed LoRA primarily because the classification task is not stylistically novel: the 40 document categories are well-represented in the base model's pretraining data, so the embedding space already separates them effectively. Fine-tuning yields the largest gains where the base model lacks domain exposure; the 40-category taxonomy used here was well within the pretraining distribution.</div>
           </div>
         </div>
       </div>
