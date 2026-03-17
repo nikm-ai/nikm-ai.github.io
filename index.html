@@ -530,7 +530,7 @@ code {
   <div class="label" style="margin-bottom:0.5rem">Manohar Analytics Consulting</div>
   <div class="hero-name">Nik Manohar<br><em>Quantitative Data Science</em></div>
   <p class="hero-bio">
-    Eight years of applied research and production modeling across consumer technology, institutional asset management, litigation economics, and an independent consulting practice. Engagements span the full analytical pipeline: feature engineering, model development and validation, data infrastructure, and stakeholder-facing reporting. Technical fluency in <strong>Python, SQL, dbt, and Looker</strong>. Domain depth in customer analytics, risk modeling, and LLM system design. New York, NY.
+    Eight years of applied research and production modeling across consumer technology, institutional asset management, litigation economics, and an independent consulting practice. Engagements span the full pipeline, from feature engineering and model development through infrastructure build-out and reporting to non-technical stakeholders. Technical fluency in <strong>Python, SQL, dbt, and Looker</strong>. Domain depth in customer analytics, risk modeling, and LLM system design. New York, NY.
   </p>
   <div class="hero-contact">
     <a class="hero-link" href="mailto:nikhilmanohar94@gmail.com">
@@ -561,7 +561,7 @@ code {
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;border:0.5px solid var(--rule);border-radius:4px;overflow:hidden;background:var(--rule);margin-bottom:2.5rem">
   <div style="background:var(--paper-2);padding:1.25rem 1.5rem">
     <div class="label" style="margin-bottom:0.6rem">Scope</div>
-    <p style="font-size:13px;color:var(--ink-mid);line-height:1.7">Scoped projects (4&#8211;12 weeks) and ongoing retainer arrangements. Prior engagements have covered end-to-end model development, data infrastructure build-outs, BI layer design, and LLM pipeline evaluation. Deliverables are documented and built for internal team handoff.</p>
+    <p style="font-size:13px;color:var(--ink-mid);line-height:1.7">Scoped projects (4&#8211;12 weeks) and ongoing retainer arrangements. Prior engagements have covered full-cycle model development, data infrastructure build-outs, BI layer design, and LLM pipeline evaluation. Deliverables are documented so the client's team can maintain them after handoff.</p>
   </div>
   <div style="background:var(--paper-2);padding:1.25rem 1.5rem">
     <div class="label" style="margin-bottom:0.6rem">Areas of practice</div>
@@ -661,13 +661,13 @@ code {
         <div class="slide-title">Predicting 90-Day Churn<br>from <em>Behavioral Engagement Signals</em></div>
         <div class="two-col">
           <div>
-            <p class="slide-body">A tutoring platform was experiencing elevated 90-day churn rates with no systematic early-warning capability. Support teams operated reactively, contacting students only after cancellation intent had been expressed. The goal was to build a classifier capable of identifying at-risk students while intervention remained viable, and to rank that population by predicted churn probability so outreach effort could be concentrated under constrained staff capacity.</p>
+            <p class="slide-body">A tutoring platform was losing students at a rate its support team couldn't see coming. By the time a cancellation showed up, the window for intervention had already closed. The work here was to build a churn classifier that would surface at-risk students early enough to act on, and rank them by probability so a team with limited bandwidth could focus where it mattered most.</p>
           </div>
           <div>
             <div class="stat-box" style="margin-bottom:1rem">
               <div class="stat-num">~8%</div>
               <div class="stat-unit">Churn reduction</div>
-              <div class="stat-note">Achieved over 90-day post-deployment window via targeted outreach prioritization</div>
+              <div class="stat-note">Observed over the 90 days following deployment, attributed to prioritized outreach</div>
             </div>
             <div class="stat-box">
               <div class="stat-num">81%</div>
@@ -681,7 +681,7 @@ code {
       <div class="slide">
         <div class="slide-label">Feature engineering</div>
         <div class="slide-title">Behavioral Signal <em>Construction</em></div>
-        <p class="slide-body" style="margin-bottom:1.25rem">All features were derived from raw session and assessment event logs. No demographic or subscription-tier information was included in the final model, limiting potential for proxy discrimination. The feature set captures engagement trajectory, not current state.</p>
+        <p class="slide-body" style="margin-bottom:1.25rem">All features were derived from raw session and assessment event logs, with no demographic or subscription-tier data included. The feature set needed to capture how engagement was changing, not who a student was at enrollment.</p>
         <table class="dtable">
           <thead><tr><th>Feature</th><th>Construction</th><th>Rationale</th></tr></thead>
           <tbody>
@@ -699,8 +699,8 @@ code {
         <div class="slide-title">XGBoost Training and <em>Threshold Optimization</em></div>
         <div class="two-col">
           <div>
-            <p class="slide-body" style="margin-bottom:1rem">XGBoost was selected over logistic regression and random forest after 5-fold cross-validation. The primary evaluation metric was recall rather than accuracy, given that the cost of missing an at-risk student (false negative) substantially exceeds the cost of an unnecessary outreach contact (false positive) under the client's operational model.</p>
-            <p class="slide-body">Classification threshold was tuned on the validation set by plotting the precision-recall curve and selecting the operating point consistent with the outreach team's capacity to contact approximately 15% of the active student population per week.</p>
+            <p class="slide-body" style="margin-bottom:1rem">XGBoost was selected after 5-fold cross-validation against logistic regression and random forest. Recall was the primary metric, not accuracy. Missing an at-risk student costs more than an unnecessary outreach call, and the model threshold needed to reflect that asymmetry.</p>
+            <p class="slide-body">Threshold selection was done on the validation set against the precision-recall curve, targeting the operating point where the flagged population matched what the outreach team could realistically contact in a week: roughly 15% of active students.</p>
           </div>
           <div>
             <div style="margin-bottom:1.25rem">
@@ -736,7 +736,7 @@ code {
       <div class="slide">
         <div class="slide-label">Feature importance</div>
         <div class="slide-title">SHAP-Based Attribution<br>of <em>Predictive Contribution</em></div>
-        <p class="slide-body" style="margin-bottom:1.25rem">SHAP (SHapley Additive exPlanations) values were computed on the test set to produce a model-level ranking of feature contributions and to support per-student explainability in the outreach tool. Session frequency and recency together account for the majority of predictive signal.</p>
+        <p class="slide-body" style="margin-bottom:1.25rem">SHAP values were computed on the test set to rank feature contributions and to make individual predictions explainable in the outreach tool. Session frequency and recency carry most of the signal, which makes intuitive sense: both reflect the same underlying thing, disengagement, just at different timescales.</p>
         <div class="bar-chart">
           <div class="bar-row">
             <div class="bar-label">Session frequency</div>
@@ -772,17 +772,17 @@ code {
         <div class="slide-title">Building the<br><em>Outreach Prioritization Pipeline</em></div>
         <div class="two-col">
           <div>
-            <p class="slide-body" style="margin-bottom:1rem">The model was deployed as a weekly batch scoring job rather than a real-time inference endpoint, consistent with the support team's Monday-morning triage workflow. Scored students are ranked by predicted churn probability and surfaced in a prioritized outreach queue with the top three contributing features displayed per student.</p>
+            <p class="slide-body" style="margin-bottom:1rem">The model runs as a weekly batch job rather than a real-time endpoint, which fits the support team's Monday-morning workflow. Each scoring run ranks all active students by churn probability and surfaces the top three contributing features per student, so outreach staff know why someone is flagged, not just that they are.</p>
             <ul class="blist">
               <li>Weekly batch inference on all active students with tenure under 12 months</li>
-              <li>Top 15% of scored population flagged for high-priority outreach</li>
-              <li>Students in months 1 to 3 receive a separate cohort flag given elevated baseline hazard</li>
-              <li>Model retrained quarterly on rolling 18-month window as engagement patterns evolve</li>
+              <li>Top 15% of the scored population flagged for high-priority outreach</li>
+              <li>Students in months 1 to 3 carry a separate cohort flag given their elevated baseline hazard</li>
+              <li>Model retrained quarterly on a rolling 18-month window as engagement patterns shift</li>
             </ul>
           </div>
           <div>
-            <div class="callout">Deployment cut time-to-contact for at-risk students from 14 days (reactive) to 4 days (proactive) in the first quarter after launch.</div>
-            <div class="callout teal" style="margin-top:0.75rem">The 81% recall threshold was calibrated to match the outreach team's weekly contact capacity. Operating at higher thresholds recovered additional at-risk students but exceeded staffing limits; this is documented as a scaling constraint for future investment decisions.</div>
+            <div class="callout">Time-to-contact for at-risk students dropped from 14 days to 4 days in the first quarter after launch.</div>
+            <div class="callout teal" style="margin-top:0.75rem">The 81% recall threshold was set to match outreach capacity, not to maximize model performance. At higher thresholds the model flags more true positives, but the team runs out of bandwidth. That tradeoff is documented explicitly as a staffing constraint, not a model limitation.</div>
           </div>
         </div>
       </div>
@@ -806,7 +806,7 @@ code {
             </ul>
           </div>
           <div>
-            <div class="callout red">The ~8% churn reduction should be treated as an observational estimate. Absent a holdout control group, confounding with other operational changes during the same period cannot be ruled out. A randomized outreach experiment is recommended before attributing the full effect to the model.</div>
+            <div class="callout red">The ~8% figure should be treated as an observational estimate. There was no formal holdout control group, and other operational changes happened over the same period. The number is directionally plausible but causally unverified. A randomized outreach experiment is the right next step.</div>
           </div>
         </div>
       </div>
@@ -841,8 +841,8 @@ code {
         <div class="slide-title">Consolidating Fragmented Data<br>into <em>Tested, Version-Controlled Layers</em></div>
         <div class="two-col">
           <div>
-            <p class="slide-body" style="margin-bottom:1rem">Three separate client engagements presented variants of the same underlying problem: operational data distributed across incompatible systems, transformation logic living in ad-hoc SQL scripts or spreadsheet formulas with no version control or automated testing, and downstream modeling and reporting consuming data from those untested sources.</p>
-            <p class="slide-body">In each case, a dbt Core project was introduced to consolidate sources, formalize transformation logic across clearly separated layers, and provide a testing and documentation framework transferred to the client's internal team at project close.</p>
+            <p class="slide-body" style="margin-bottom:1rem">Three separate clients had the same problem presented in slightly different forms: data scattered across systems that weren't designed to talk to each other, transformation logic living in spreadsheet formulas or SQL scripts nobody had reviewed in months, and downstream dashboards quietly consuming outputs nobody had tested.</p>
+            <p class="slide-body">In each case, a dbt Core project brought the transformation work into version control, separated it into well-defined layers, and left the client with a test suite they could actually run. The documentation transferred at project close rather than evaporating with the consultant.</p>
           </div>
           <div>
             <div class="stat-box" style="margin-bottom:1rem">
@@ -884,7 +884,7 @@ code {
         <div class="slide-title">Salesforce, Postgres, and<br><em>Google Sheets as Unified Sources</em></div>
         <div class="two-col">
           <div>
-            <p class="slide-body" style="margin-bottom:1rem">Each source presented distinct reliability and schema challenges. Salesforce objects arrived via Fivetran with non-deterministic sync timing and occasional duplicate rows from incremental syncs. Postgres transactional tables were structurally clean but required significant type coercion. Google Sheets, used by operations teams for manual territory mappings and targets, required a source freshness SLA configured at the source declaration level to flag stale manual updates before they propagated downstream.</p>
+            <p class="slide-body" style="margin-bottom:1rem">Each source had its own failure mode. Salesforce objects came in via Fivetran with non-deterministic sync timing and occasional duplicate rows. Postgres tables were clean structurally but needed extensive type coercion. Google Sheets, which operations teams used for territory mappings and targets, was the most fragile: a stale manual update could silently corrupt downstream reports without a freshness check in place.</p>
           </div>
           <div>
             <ul class="blist">
@@ -902,8 +902,8 @@ code {
         <div class="slide-title">Automated Testing Across<br><em>All Mart Models</em></div>
         <div class="two-col">
           <div>
-            <p class="slide-body" style="margin-bottom:1rem">Every mart model shipped with a <code>schema.yml</code> test suite covering structural integrity and business logic assertions. Generic tests (<code>unique</code>, <code>not_null</code>, <code>accepted_values</code>) handled structural coverage; singular tests written in SQL caught domain-specific violations that generic tests could not express.</p>
-            <div class="callout">Test coverage was a contractual deliverable in two of the three engagements. Clients retained the test suite on handoff as a regression harness for future pipeline modifications.</div>
+            <p class="slide-body" style="margin-bottom:1rem">Every mart model shipped with a <code>schema.yml</code> test suite. Generic tests covered the structural basics, uniqueness, nulls, accepted values. Singular tests written in SQL caught the domain-specific cases that generic tests can't express: things like revenue figures that should never be negative, or churn dates that can't precede enrollment.</p>
+            <div class="callout">Test coverage was a contractual deliverable in two of the three engagements. Clients kept the test suite on handoff as a regression harness for future changes.</div>
           </div>
           <div>
             <div class="slide-label" style="margin-bottom:0.75rem">Test categories</div>
@@ -927,16 +927,16 @@ code {
         <div class="slide-title">Results and<br><em>Client Knowledge Transfer</em></div>
         <div class="two-col">
           <div>
-            <p class="slide-body" style="margin-bottom:1rem">In all three engagements, the primary downstream consumer of the mart layer was a Looker instance. The mart models were designed with Looker dimension and measure naming conventions in mind, reducing the volume of LookML that needed to be written against the marts. All column names, grain documentation, and test coverage were preserved in the dbt project for the client's internal data team.</p>
+            <p class="slide-body" style="margin-bottom:1rem">In all three cases the downstream consumer was a Looker instance, so the mart models were built with Looker naming conventions in mind from the start. That reduced the LookML work considerably and meant the handoff document was the dbt project itself, not a separate piece of documentation that would immediately fall out of date.</p>
             <ul class="blist">
-              <li>Eliminated reliance on ad-hoc SQL scripts running outside version control in all three cases</li>
-              <li>Looker dashboard development time reduced by consistent mart grain and column naming conventions</li>
+              <li>All three clients stopped running ad-hoc SQL scripts outside version control</li>
+              <li>Consistent naming across mart models shortened the LookML work on the Looker side</li>
               <li>Quarterly dbt test runs integrated into CI pipelines in two engagements</li>
               <li>Project documentation auto-generated via <code>dbt docs generate</code> served as the handoff artifact</li>
             </ul>
           </div>
           <div>
-            <div class="callout teal">The dbt documentation site (generated from <code>schema.yml</code> descriptions) served as the primary technical handoff document. It included lineage graphs, column-level descriptions, and test results, which the internal team could maintain and extend without re-engagement.</div>
+            <div class="callout teal">The <code>dbt docs generate</code> site served as the handoff document. Lineage graphs, column-level descriptions, and test results were all in one place, and the internal team could update them without re-engagement.</div>
           </div>
         </div>
       </div>
@@ -971,8 +971,8 @@ code {
         <div class="slide-title">Systematic Mispricing in<br><em>Residential Portfolio Management</em></div>
         <div class="two-col">
           <div>
-            <p class="slide-body" style="margin-bottom:1rem">Manual rent-setting at scale produces predictable inefficiencies: a portion of the portfolio is priced above market equilibrium (generating vacancy drag), while another portion is priced below (forgoing attainable revenue). Neither condition is immediately observable without a market-clearing reference price against which to benchmark current listings.</p>
-            <p class="slide-body">The goal was to train a model on observable property and market features capable of predicting market-clearing monthly rent, then use signed deviations from model estimates as pricing signals, surfaced to non-technical property managers through a Looker dashboard.</p>
+            <p class="slide-body" style="margin-bottom:1rem">At scale, manual rent-setting produces two predictable inefficiencies: units priced above market sit vacant, and units priced below market leave revenue uncollected. Neither shows up obviously in the data unless you have a reference point for what rent should be.</p>
+            <p class="slide-body">We trained a gradient boosting model to predict market-clearing rent from observable property and neighborhood features, then used the signed gap between prediction and asking price as the pricing signal. The outputs were surfaced through a Looker dashboard built for property managers with no quantitative background.</p>
           </div>
           <div>
             <div class="stat-box" style="margin-bottom:1rem">
@@ -992,7 +992,7 @@ code {
       <div class="slide">
         <div class="slide-label">Feature set</div>
         <div class="slide-title">Observable Listing and<br><em>Market-Level Predictors</em></div>
-        <p class="slide-body" style="margin-bottom:1.25rem">All features were sourced from the client's property management system, comparable transaction data, and publicly available census variables. No proprietary third-party data feeds were used, consistent with the client's data vendor budget constraint.</p>
+        <p class="slide-body" style="margin-bottom:1.25rem">All features came from the client's property management system, comparable transaction data, and public census variables. No proprietary third-party feeds were used; the client had a hard constraint on data vendor spend, and the model needed to be reproducible on their existing infrastructure.</p>
         <table class="dtable">
           <thead><tr><th>Feature</th><th>Source</th><th>Role</th></tr></thead>
           <tbody>
@@ -1011,7 +1011,7 @@ code {
         <div class="slide-title">Gradient Boosting versus<br><em>Ridge Regression Baseline</em></div>
         <div class="two-col">
           <div>
-            <p class="slide-body" style="margin-bottom:1.25rem">A Ridge regression baseline was trained on the same feature set as the GBM to provide a linear benchmark. The GBM's improvement over Ridge was most pronounced in the premium segment, where non-linear interactions between square footage, location, and demand score accounted for a disproportionate share of price variation.</p>
+            <p class="slide-body" style="margin-bottom:1.25rem">A Ridge regression baseline was trained on the same features to establish a linear benchmark. The GBM outperformed it most in the premium segment, where the relationship between rent, location, and demand is non-linear and Ridge can only approximate.</p>
             <div class="bar-chart" style="margin-top:1rem">
               <div class="bar-row">
                 <div class="bar-label">GBM (final)</div>
@@ -1032,13 +1032,13 @@ code {
             <div class="footnote">CV R&#178;, 5-fold. GBM: LightGBM, 500 estimators, max depth 6, learning rate 0.05.</div>
           </div>
           <div>
-            <p class="slide-body" style="margin-bottom:1rem">The +14.6 percentage point gain over Ridge reflects the model's ability to capture:</p>
+            <p class="slide-body" style="margin-bottom:1rem">The 14.6 pp gain over Ridge came from three places the linear model can't handle:</p>
             <ul class="blist">
               <li>Non-linear distance decay (premium units closer to center command disproportionately higher rent)</li>
               <li>Segment-by-market interaction effects not expressible in a linear form</li>
               <li>Threshold effects in the demand score at high-demand submarkets</li>
             </ul>
-            <div class="callout" style="margin-top:1rem">MAE of $164/month on a median rent of approximately $2,200 represents a 7.5% mean absolute percentage error, sufficient for mispricing detection at the 5% threshold used by the client.</div>
+            <div class="callout" style="margin-top:1rem">At $164/month MAE on a median rent around $2,200, the model's error is small enough that a 5% deviation threshold catches real pricing gaps rather than noise. That calibration was deliberate.</div>
           </div>
         </div>
       </div>
@@ -1048,7 +1048,7 @@ code {
         <div class="slide-title">Translating Model Estimates<br>into <em>Pricing Decisions</em></div>
         <div class="two-col">
           <div>
-            <p class="slide-body" style="margin-bottom:1rem">A listing was classified as mispriced if its current asking rent deviated from the model estimate by more than 5% in either direction. The 5% threshold was calibrated against the model's MAE: at $164/month MAE, flagging deviations smaller than approximately $110 on a $2,200 listing would produce excessive false positives from model noise rather than true pricing gaps.</p>
+            <p class="slide-body" style="margin-bottom:1rem">A listing was flagged as mispriced if its asking rent deviated from the model estimate by more than 5% in either direction. That threshold was set against the model's own error distribution: flagging gaps smaller than ~$110 on a $2,200 unit would mostly flag prediction noise, not real pricing problems.</p>
             <ul class="blist">
               <li>Overpriced (above threshold): flag for rent reduction at next renewal opportunity</li>
               <li>Underpriced (below threshold): flag for rent increase; demand score considered before recommendation</li>
@@ -1071,7 +1071,7 @@ code {
         <div class="slide-title">Looker Dashboard for<br><em>Non-Technical Property Managers</em></div>
         <div class="two-col">
           <div>
-            <p class="slide-body" style="margin-bottom:1rem">The dashboard was built for property managers with no quantitative background. The design principle was to surface conclusions, not model outputs: each listing shows a mispricing status (overpriced, underpriced, or within band), the recommended adjustment in dollar terms, and an estimated occupancy impact, without exposing the underlying model mechanics.</p>
+            <p class="slide-body" style="margin-bottom:1rem">The dashboard was built for property managers with no quantitative background. The design principle was simple: show the conclusion, not the model. Each listing displays a status (overpriced, underpriced, or within band), the recommended dollar adjustment, and an estimated occupancy impact. The model mechanics are not exposed.</p>
             <ul class="blist">
               <li>Segment, market, and property type filters allow managers to focus on their assigned properties</li>
               <li>Revenue impact is expressed as annualized dollars, not percentages, per manager feedback during testing</li>
@@ -1080,7 +1080,7 @@ code {
             </ul>
           </div>
           <div>
-            <div class="callout teal">The dashboard eliminated a weekly analyst-prepared market summary process. Within the first month of deployment, property managers were making independent repricing decisions without analyst involvement, the adoption milestone specified at engagement outset.</div>
+            <div class="callout teal">Within a month of launch, property managers were making repricing decisions independently, without looping in the analytics team. That was the stated adoption goal, and it happened faster than expected.</div>
           </div>
         </div>
       </div>
@@ -1115,8 +1115,8 @@ code {
         <div class="slide-title">Automating Plain-Language Translation<br>of <em>Quantitative Portfolio Reports</em></div>
         <div class="two-col">
           <div>
-            <p class="slide-body" style="margin-bottom:1rem">A financial services client produced monthly portfolio performance reports consumed primarily by non-quantitative leadership: board members, senior relationship managers, and operations staff without a modeling background. A quant analyst was spending 6 to 8 hours per monthly cycle manually translating model outputs and performance metrics into narrative prose, producing a document that leadership could read without interpreting raw numbers.</p>
-            <p class="slide-body">The translation step was a bottleneck: 6 to 8 analyst-hours per monthly cycle, with narrative framing that varied across analysts. The goal was to automate this step using the GPT-4 API, preserving factual accuracy, regulatory conservatism, and firm-specific terminology.</p>
+            <p class="slide-body" style="margin-bottom:1rem">A financial services client produced monthly portfolio performance reports consumed primarily by board members and relationship managers who had no interest in interpreting model outputs. A quant analyst was spending 6 to 8 hours per monthly cycle manually translating performance metrics into narrative prose.</p>
+            <p class="slide-body">Six to eight hours per month, every month, on a step that was mostly mechanical. The framing shifted analyst to analyst, which introduced its own problems. We automated the translation using the GPT-4 API, keeping the human in the loop for review but removing the drafting work entirely.</p>
           </div>
           <div>
             <div class="stat-box" style="margin-bottom:1rem">
@@ -1138,7 +1138,7 @@ code {
         <div class="slide-title">Pipeline Architecture and<br><em>Prompt Engineering Approach</em></div>
         <div class="two-col">
           <div>
-            <p class="slide-body" style="margin-bottom:1rem">The pipeline accepts a structured Python dictionary of monthly metrics as input and returns a four-section narrative document: performance summary, attribution analysis, risk commentary, and forward outlook. Each section is generated in a separate API call to allow independent human review and to stay within context limits on the full document.</p>
+            <p class="slide-body" style="margin-bottom:1rem">The pipeline takes a structured Python dictionary of monthly metrics and returns a four-section document: performance summary, attribution analysis, risk commentary, and forward outlook. Each section is a separate API call. That structure allows the analyst to review and approve sections independently and keeps any single prompt well within context limits.</p>
             <ul class="blist">
               <li>System prompt encodes firm-specific terminology, risk appetite language, and the set of claims that require explicit hedging</li>
               <li>Temperature set to 0.2 for factual stability; tested at 0.0 and 0.4 with 0.2 chosen as the balance point between variance and naturalness</li>
@@ -1167,8 +1167,8 @@ code {
         <div class="slide-title">Engineering for Factual Accuracy<br>in a <em>Regulated Context</em></div>
         <div class="two-col">
           <div>
-            <p class="slide-body" style="margin-bottom:1rem">Financial narrative is not a domain where generative fluency is the primary risk. The primary risks are factual inaccuracy (wrong numbers in narrative), regulatory overreach (unqualified forward-looking statements), and tone inconsistency. The prompt engineering effort was concentrated on controlling these failure modes rather than on stylistic quality.</p>
-            <div class="callout" style="margin-top:1rem">The single highest-value prompt engineering decision was explicit instruction to flag input data anomalies rather than silently incorporate them into narrative. In the first production run, the model correctly surfaced a data entry error in the attribution table rather than generating a narrative that would have been factually wrong.</div>
+            <p class="slide-body" style="margin-bottom:1rem">In a regulated financial context, fluency is not the risk. Wrong numbers are the risk. Forward-looking claims without qualifications are the risk. Inconsistent terminology that departs from what compliance has approved is the risk. The prompt engineering work was almost entirely about failure mode control, not about making the output read well.</p>
+            <div class="callout" style="margin-top:1rem">The most valuable single decision was instructing the model to flag data anomalies rather than incorporate them silently. In the first production run, it surfaced a data entry error in the attribution table. Without that instruction, the error would have gone straight into the narrative.</div>
           </div>
           <div>
             <div class="slide-label" style="margin-bottom:0.75rem">Key prompt constraints</div>
@@ -1188,7 +1188,7 @@ code {
         <div class="slide-title">Measuring Output Quality<br>and <em>Factual Fidelity</em></div>
         <div class="two-col">
           <div>
-            <p class="slide-body" style="margin-bottom:1rem">LLM outputs in financial contexts require a more rigorous evaluation framework than subjective quality assessment. A scoring rubric was developed with the client's compliance team covering four dimensions: numerical accuracy, regulatory language compliance, terminology adherence, and narrative completeness. Each section was scored against the rubric before the pipeline was approved for production use.</p>
+            <p class="slide-body" style="margin-bottom:1rem">You can't evaluate a financial LLM pipeline by reading it and deciding it sounds good. A scoring rubric was developed with the client's compliance team covering numerical accuracy, regulatory language, terminology adherence, and completeness. Every section was scored against the rubric across six test reports before the pipeline went to production.</p>
             <table class="dtable" style="margin-top:0.75rem">
               <thead><tr><th>Dimension</th><th>Pass criterion</th></tr></thead>
               <tbody>
@@ -1237,7 +1237,7 @@ code {
               <div class="stat-box"><div class="stat-num">100%</div><div class="stat-unit">Format consistency</div></div>
               <div class="stat-box"><div class="stat-num">0</div><div class="stat-unit">Reg. violations</div></div>
             </div>
-            <p class="slide-body">The human review step was retained as a contractual and regulatory requirement, not a quality hedge. Average analyst review time declined from 6 to 8 hours to under 20 minutes per cycle. The pipeline has operated in production without a regulatory language violation across all monthly cycles to date.</p>
+            <p class="slide-body">The human review step stayed. That was a contractual and regulatory requirement, not something we debated. But what used to take 6 to 8 hours now takes under 20 minutes. The analyst reads and approves rather than drafts. No regulatory language violation has occurred in production across all monthly cycles run so far.</p>
           </div>
           <div>
             <div class="slide-label" style="margin-bottom:0.5rem">Documented limitations</div>
@@ -1281,8 +1281,8 @@ code {
         <div class="slide-title">Selecting an LLM Architecture<br>for <em>Internal Document Classification</em></div>
         <div class="two-col">
           <div>
-            <p class="slide-body" style="margin-bottom:1rem">A client with a large internal document corpus required an automated classification system capable of assigning documents to a predefined taxonomy of approximately 40 categories. Three candidate architectures were evaluated: LoRA fine-tuning of a 7B parameter base model, prompt-tuning via soft prefix injection, and embedding-based retrieval classification using a frozen encoder and a labeled reference index.</p>
-            <p class="slide-body">The evaluation framework prioritized classification accuracy on a held-out test set, total infrastructure cost over a 12-month horizon, operational complexity of the production deployment, and the architecture's ability to incorporate new document categories without retraining.</p>
+            <p class="slide-body" style="margin-bottom:1rem">A client needed to classify a large internal document corpus against a taxonomy of roughly 40 categories. The question was which architecture to build on: LoRA fine-tuning of a 7B parameter base model, prompt-tuning via soft prefix injection, or embedding-based retrieval against a labeled reference index.</p>
+            <p class="slide-body">We evaluated all three against four criteria: accuracy on a held-out test set, estimated infrastructure cost over 12 months, operational complexity in production, and the ability to add new categories without retraining. That last criterion turned out to matter more than expected.</p>
           </div>
           <div>
             <div class="stat-box" style="margin-bottom:1rem">
@@ -1371,8 +1371,8 @@ code {
           </div>
           <div>
             <div class="verdict rec" style="margin-bottom:0.75rem">Recommended: embedding retrieval</div>
-            <p class="slide-body" style="margin-bottom:1rem">Embedding retrieval produced the highest accuracy while requiring substantially lower infrastructure investment. The result runs counter to the common assumption that fine-tuning should outperform retrieval on narrow classification tasks; the explanation lies in the nature of the task itself.</p>
-            <div class="callout teal">The retrieval architecture outperformed LoRA primarily because the classification task is not stylistically novel: the 40 document categories are well-represented in the base model's pretraining data, so the embedding space already separates them effectively. Fine-tuning yields the largest gains where the base model lacks domain exposure; the 40-category taxonomy used here was well within the pretraining distribution.</div>
+            <p class="slide-body" style="margin-bottom:1rem">Retrieval won on accuracy and came in at a fraction of the infrastructure cost. That inverts the usual expectation — fine-tuning is supposed to beat retrieval on narrow tasks. The reason it didn't here is worth understanding.</p>
+            <div class="callout teal">These 40 categories are not domain-exotic. They're well-represented in the base model's pretraining data, so the embedding space already separates them without any additional training. Fine-tuning yields the biggest gains where the base model genuinely lacks exposure to the domain. That wasn't the case here.</div>
           </div>
         </div>
       </div>
@@ -1385,13 +1385,13 @@ code {
             <p class="slide-body" style="margin-bottom:1rem">The reference index was built from a labeled set of 15 to 25 examples per category, embedded using <code>text-embedding-3-small</code> and stored in a Postgres table with the <code>pgvector</code> extension. At inference time, the query document is embedded and the top-5 nearest neighbors are retrieved by cosine similarity. Category assignment follows a weighted majority vote, with distance-weighted votes giving higher confidence to closer neighbors.</p>
             <ul class="blist">
               <li>Index contains approximately 800 labeled examples across 40 categories (mean: 20 per category)</li>
-              <li>Rare categories with under 10 examples were augmented with lightly paraphrased variants; augmented examples are flagged and excluded from accuracy evaluation</li>
+              <li>Rare categories with under 10 examples were augmented with lightly paraphrased variants; augmented examples were flagged and excluded from accuracy evaluation</li>
               <li>Confidence threshold of 0.65 (weighted vote share) required for automatic classification; below-threshold documents routed to human review queue</li>
               <li>New categories added by appending labeled examples to the index; no retraining or redeployment required</li>
             </ul>
           </div>
           <div>
-            <div class="callout teal" style="margin-bottom:1rem">The zero-retraining property of the retrieval architecture was the decisive factor in the client recommendation. The document taxonomy evolves as regulatory requirements change; LoRA fine-tuning would require a retraining cycle and model validation for every taxonomy update. The retrieval approach required only adding examples to the index.</div>
+            <div class="callout teal" style="margin-bottom:1rem">The ability to add new categories by appending examples to the index was the deciding factor in the recommendation. The document taxonomy shifts as regulatory requirements change. With LoRA, every taxonomy update triggers a retraining cycle and model validation. With retrieval, it's a few labeled examples added to a Postgres table.</div>
             <table class="dtable">
               <thead><tr><th>Property</th><th>Retrieval</th><th>LoRA</th></tr></thead>
               <tbody>
@@ -1410,14 +1410,14 @@ code {
         <div class="two-col">
           <div>
             <div class="verdict rec" style="margin-bottom:1rem">Embedding retrieval: recommended</div>
-            <p class="slide-body" style="margin-bottom:0.75rem">The recommendation is based on four factors considered jointly: accuracy, cost, operational complexity, and adaptability to taxonomy change. Retrieval dominates on all four dimensions for this specific task.</p>
-            <div class="callout teal">This conclusion does not generalize. LoRA fine-tuning remains the stronger choice for tasks requiring stylistic adaptation (clinical note summarization, domain-specific code generation, specialized translation) where the base model's embedding space does not already separate the target categories. The evaluation outcome here is task-specific.</div>
+            <p class="slide-body" style="margin-bottom:0.75rem">Retrieval dominates on all four evaluation criteria for this task: accuracy, cost, operational simplicity, and adaptability. The recommendation followed directly.</p>
+            <div class="callout teal">This result is task-specific. LoRA is the right choice when the base model genuinely lacks domain exposure and the target behavior requires stylistic adaptation, things like clinical note summarization, specialized translation, or domain-specific code generation. The lesson here is diagnostic, not general: check whether your embedding space already separates the target categories before committing to fine-tuning infrastructure.</div>
           </div>
           <div>
             <div class="verdict out" style="margin-bottom:0.75rem">LoRA: not recommended for this task</div>
-            <p class="slide-body" style="margin-bottom:1rem">Lower accuracy than retrieval despite substantially higher cost. GPU training infrastructure and model serving endpoint represent ongoing operational burden without compensating accuracy benefit on this particular classification taxonomy.</p>
+            <p class="slide-body" style="margin-bottom:1rem">LoRA came in second on accuracy and first on cost and operational burden. The GPU training infrastructure and serving endpoint are meaningful ongoing commitments, and they didn't produce a meaningful accuracy improvement on this taxonomy.</p>
             <div class="verdict out" style="margin-bottom:0.75rem">Prompt-tuning: not recommended</div>
-            <p class="slide-body">Lowest accuracy of the three approaches. The soft prefix approach did not produce meaningful task adaptation compared to zero-shot prompting, suggesting the 40-category taxonomy was either too broad for soft prompt capacity or that the labeled set was insufficient to learn a useful prefix representation.</p>
+            <p class="slide-body">Prompt-tuning was last on accuracy and barely improved over zero-shot. Whether that reflects a taxonomy too broad for soft prompt capacity or a labeled set too small to learn a useful prefix, the result was the same either way.</p>
           </div>
         </div>
       </div>
@@ -1452,8 +1452,8 @@ code {
         <div class="slide-title">Identifying the Causal Effect of<br><em>Adaptive Session Pacing on Retention</em></div>
         <div class="two-col">
           <div>
-            <p class="slide-body">The tutoring platform from Case Study 01 needed to evaluate a proposed product change: replacing fixed 45-minute sessions with an adaptive pacing system that shortens or extends session length based on real-time engagement signals. Observational analysis of existing session data could not answer the causal question, because students who naturally exhibit higher engagement are systematically different from disengaged students in ways that confound a naive comparison.</p>
-            <p class="slide-body">The project proceeded in two stages. First, a pre-registration protocol was drafted specifying the primary estimand, randomization scheme, sample size, analysis plan, and decision criteria, all before any outcome data were observed. Second, a randomized controlled trial was designed and, after client approval, executed over a 12-week cohort window. This case study documents the experimental design, power analysis, and post-experiment causal estimation procedure.</p>
+            <p class="slide-body">The platform from Case Study 01 wanted to test a product change: replacing fixed 45-minute sessions with an adaptive pacing system that reads engagement signals and adjusts session length in real time. The obvious analysis, comparing outcomes across students who happened to use the feature versus those who didn't, wouldn't work. Students who engage more are already different in the ways that predict retention, and any naive comparison would mix up the effect of the feature with the baseline difference between those students.</p>
+            <p class="slide-body">So we ran an experiment. Before touching any outcome data, we filed a pre-registration specifying the estimand, the randomization scheme, the target sample size, and the criterion that would trigger a deployment recommendation. The trial ran over a 12-week enrollment window. What follows documents the design choices, the power analysis, and how the causal estimate was constructed after unblinding.</p>
           </div>
           <div>
             <div class="stat-box">
@@ -1480,9 +1480,9 @@ code {
         <div class="slide-title">Minimum Detectable Effect and<br><em>Sample Size Determination</em></div>
         <div class="two-col">
           <div>
-            <p class="slide-body">The primary outcome was 90-day retention (binary: active vs. churned). Under a two-sided test at &alpha; = 0.05 with 1 &minus; &beta; = 0.80, and a baseline retention rate of 71% estimated from the prior 18-month cohort, the minimum detectable effect (MDE) was set at an absolute lift of 5 percentage points, the threshold the client defined as commercially meaningful given projected revenue per retained student.</p>
-            <p class="slide-body">The required per-arm sample size was derived analytically from the normal approximation to the binomial test statistic. With p&#8320; = 0.71, p&#8321; = 0.76, &alpha; = 0.05 (two-sided), and power = 0.80, the formula yields n &asymp; 604 per arm. A 15% attrition buffer raised the target enrollment to 700 per arm, or 1,400 total. We selected a 12-week enrollment window to reach this target given the platform's new-enrollment rate of approximately 120 students per week.</p>
-            <div class="callout teal" style="margin-top:1rem">A sensitivity analysis across MDE values from 3 pp to 8 pp showed that 5 pp was the smallest effect detectable within the 12-week window. Effects below 3 pp would require more than 2,200 students per arm, which fell below the cost-benefit threshold given the development cost of the adaptive system.</div>
+            <p class="slide-body">The outcome was 90-day retention, binary. With a baseline rate of 71% from the prior 18-month cohort and a two-sided test at &alpha; = 0.05 with 80% power, we needed to be able to detect a 5 percentage point lift. That threshold wasn't set by the statistics; it was set by the client, who worked out that below 5 pp the feature wouldn't recover its development cost.</p>
+            <p class="slide-body">From those parameters, the normal approximation to the binomial gives n &asymp; 604 per arm. We added a 15% attrition buffer and targeted 700, or 1,400 total. The platform enrolled roughly 120 new students per week, which made 12 weeks the natural window. Final enrollment came in at 1,412.</p>
+            <div class="callout teal" style="margin-top:1rem">Running the sensitivity analysis across MDEs from 3 pp to 8 pp made the constraint concrete: effects below 3 pp would require more than 2,200 students per arm and took longer than the platform's product cycle allowed. The 5 pp threshold was both statistically achievable and commercially justified.</div>
           </div>
           <div>
             <div class="slide-label">Power curve across effect sizes</div>
@@ -1528,9 +1528,9 @@ code {
         <div class="slide-title">Blocked Assignment and<br><em>Pre-Treatment Balance Verification</em></div>
         <div class="two-col">
           <div>
-            <p class="slide-body">Randomization was stratified on two blocking variables: enrollment cohort month (to prevent temporal confounding from seasonal retention patterns) and subscription tier (standard vs. premium). Within each stratum, students were assigned to treatment or control with equal probability using a cryptographically secure pseudo-random number generator seeded at enrollment, with the seed value committed to a pre-registration document before any assignments were made.</p>
-            <p class="slide-body">Following enrollment, pre-treatment covariate balance was assessed via standardized mean differences (SMDs) across eight baseline covariates. No covariate exhibited an SMD exceeding 0.08, satisfying the conventional threshold of 0.10 for acceptable balance. A two-sample Kolmogorov-Smirnov test on the baseline session frequency distribution returned p = 0.61, confirming the absence of systematic imbalance.</p>
-            <div class="callout" style="margin-top:1rem">The blocking structure halved the variance of the treatment effect estimator relative to simple random assignment, reducing the effective sample size requirement by approximately 18%, equivalent to roughly 250 fewer students needed to achieve target power.</div>
+            <p class="slide-body">Assignment was stratified on two variables: enrollment cohort month and subscription tier. Cohort month controlled for seasonal patterns in retention; tier controlled for a known confound between plan type and engagement levels. Within each stratum, students were assigned 50/50 using a seeded CSPRNG, with the seed committed to the pre-registration document before any assignments were made.</p>
+            <p class="slide-body">After enrollment closed, we checked balance across eight pre-treatment covariates using standardized mean differences. The largest SMD was 0.08, well below the standard 0.10 threshold. A Kolmogorov-Smirnov test on baseline session frequency returned p = 0.61. The two arms looked like they came from the same population, which is the point.</p>
+            <div class="callout" style="margin-top:1rem">Blocking on two variables roughly halved estimator variance relative to simple random assignment — equivalent to needing about 250 fewer students to hit the same power target. That's not a minor efficiency; it's the kind of design choice that determines whether an experiment is feasible at a given sample size.</div>
           </div>
           <div>
             <div class="slide-label">Standardized mean differences, baseline covariates</div>
@@ -1576,9 +1576,9 @@ code {
         <div class="slide-title">CUPED and Covariate Adjustment for<br><em>Precision Improvement</em></div>
         <div class="two-col">
           <div>
-            <p class="slide-body">To reduce estimator variance beyond what blocking alone provided, CUPED (Controlled-experiment Using Pre-Experiment Data) was applied. The method regresses the post-experiment outcome on pre-experiment covariates and uses the residual as the adjusted outcome variable for the treatment effect test. Under OLS, this is equivalent to including pre-treatment covariates in a linear probability model of the outcome, but CUPED makes the variance reduction mechanics explicit and auditable.</p>
-            <p class="slide-body">The pre-experiment covariate vector included: 30-day session frequency from the two months before enrollment, baseline drop-off signal score, and an indicator for students flagged as at-risk by the churn model from Case Study 01. The adjusted estimator reduces residual variance by 1 &minus; R&#178; relative to the unadjusted estimator, where R&#178; is the explained variance in the outcome attributable to the covariate vector.</p>
-            <div class="callout teal">CUPED achieved R&#178; = 0.31 on the pre-experiment covariate projection, reducing estimator variance by 31% and shrinking the 95% confidence interval width by approximately 18% relative to the unadjusted difference-in-means estimator. This is equivalent to having recruited approximately 450 additional students.</div>
+            <p class="slide-body">Blocking reduced variance at the design stage. CUPED reduced it further at the analysis stage. The method is straightforward: regress the outcome on pre-experiment covariates, use the residual as the adjusted outcome, and run the treatment effect test on that. It's asymptotically equivalent to including those covariates in a linear probability model, but the framing makes the variance reduction explicit and easy to audit.</p>
+            <p class="slide-body">The covariate vector was: 30-day session frequency from the two months before enrollment, baseline drop-off score, and the at-risk flag from the churn model in Case Study 01. That last feature was the most predictive, which makes sense given how well the churn model captures disengagement. Together they explained R&#178; = 0.31 of outcome variance.</p>
+            <div class="callout teal">R&#178; = 0.31 translates to a 31% variance reduction, which narrowed the 95% CI by about 18% compared to the unadjusted difference-in-means. To put it concretely: the same precision we got with 1,412 students would have required roughly 1,860 without CUPED. That's a meaningful gain from a one-line design decision.</div>
           </div>
           <div>
             <table class="dtable">
@@ -1606,8 +1606,8 @@ code {
         <div class="slide-title">Frequentist Hypothesis Test and<br><em>Causal Effect Estimate</em></div>
         <div class="two-col">
           <div>
-            <p class="slide-body">The primary analysis used a two-sample z-test on the CUPED-adjusted outcomes under the intention-to-treat principle. The null hypothesis H&#8320;: &tau; &le; 0 was tested against the pre-registered one-sided alternative H&#8321;: &tau; &gt; 0 at significance level &alpha; = 0.05, where &tau; denotes the average treatment effect on 90-day retention. The pre-registration specified that the null would be rejected only if p &lt; 0.05 and the lower bound of the 95% confidence interval exceeded 2 percentage points, below which the effect would be considered commercially marginal even if statistically detectable.</p>
-            <p class="slide-body">90-day retention was 76.8% in the treatment arm and 71.4% in the control arm, a raw difference of 5.4 percentage points. After CUPED adjustment the point estimate is unchanged at +5.4 pp (z = 4.06, p &lt; 0.001). The lower bound of the 95% confidence interval is +2.8 pp, satisfying both the statistical significance criterion and the pre-registered commercial threshold. The ITT estimate is +4.9 pp, reflecting 9% non-compliance among students assigned to adaptive pacing who reverted to standard sessions at their own request.</p>
+            <p class="slide-body">The primary analysis was a two-sample z-test on CUPED-adjusted outcomes under ITT. The pre-registration specified two conditions for rejecting the null: p &lt; 0.05, and a lower confidence bound above 2 pp. That second condition was there because a statistically significant but commercially negligible effect shouldn't trigger deployment. Both conditions had to hold.</p>
+            <p class="slide-body">Retention was 76.8% in the treatment arm and 71.4% in the control arm. The raw difference is 5.4 pp; the CUPED-adjusted estimate is also 5.4 pp (z = 4.06, p &lt; 0.001), with a 95% CI lower bound of +2.8 pp. Both pre-registered criteria were satisfied. The ITT estimate is +4.9 pp, with the 0.5 pp gap reflecting 9% non-compliance: students assigned to adaptive pacing who switched back to standard sessions on their own.</p>
           </div>
           <div>
             <div class="slide-label">Outcome by arm</div>
@@ -1644,8 +1644,8 @@ code {
         <div class="slide-title">Posterior Estimation and<br><em>Subgroup Effect Heterogeneity</em></div>
         <div class="two-col">
           <div>
-            <p class="slide-body">As a secondary analysis, a Bayesian beta-binomial model was fit to the outcome data to produce a full posterior distribution over the treatment effect. A weakly informative prior, Beta(2, 2) on each arm's retention rate, was chosen to express prior uncertainty while mildly discouraging extreme values near 0 or 1. The posterior was computed analytically given the conjugate structure, yielding Beta(543 + 2, 163 + 2) for the treatment arm and Beta(504 + 2, 202 + 2) for the control arm.</p>
-            <p class="slide-body">Heterogeneous treatment effects (HTE) were estimated via a Bayesian additive regression trees (BART) model with treatment indicator, covariate vector, and treatment &times; covariate interactions as inputs. Summarizing the posterior distribution of individual treatment effects by quintile of the pre-experiment at-risk score from Case Study 01 revealed substantial effect heterogeneity: students in the highest at-risk quintile showed a posterior mean effect of +9.1 pp (95% credible interval: [+5.8, +12.4]), compared to +1.8 pp ([&minus;1.1, +4.7]) in the lowest quintile.</p>
+            <p class="slide-body">As a secondary analysis we fit a Bayesian beta-binomial model to get a full posterior over the treatment effect. The prior was Beta(2, 2) on each arm's retention rate, weakly informative, mildly pulling away from 0 and 1. Given the conjugate structure the posterior closes analytically: Beta(545, 165) for treatment, Beta(506, 204) for control. P(&tau; &gt; 0) = 0.97.</p>
+            <p class="slide-body">The more interesting secondary result came from BART. We used the churn model's at-risk score from Case Study 01 to stratify students into quintiles and estimated individual treatment effects across that distribution. The gradient is steep: students in the top risk quintile show a posterior mean effect of +9.1 pp [+5.8, +12.4], while the bottom quintile shows +1.8 pp [&minus;1.1, +4.7]. Adaptive pacing does most of its work on students who are already disengaging.</p>
           </div>
           <div>
             <div class="slide-label">Posterior mean treatment effect by at-risk quintile</div>
@@ -1676,8 +1676,8 @@ code {
                 <div class="bar-val">+1.8 pp</div>
               </div>
             </div>
-            <p class="footnote">BART posterior means. The monotone gradient in effect size is consistent with the hypothesis that adaptive pacing provides the greatest benefit to students showing early disengagement signals, the mechanism the product team hypothesized a priori.</p>
-            <div class="callout teal">The HTE analysis supports a targeted rollout: deploying adaptive pacing selectively to students in at-risk quintiles Q3 through Q5 would capture approximately 85% of the total estimated retention benefit while exposing only 60% of the student base to the feature.</div>
+            <p class="footnote">BART posterior means by at-risk quintile. The monotone gradient is consistent with the mechanism the product team hypothesized: adaptive pacing benefits students who are already disengaging, not those who are engaged regardless.</p>
+            <div class="callout teal">Targeting quintiles Q3 through Q5 would capture roughly 85% of the estimated retention gain while reaching only 60% of students. That's the rollout we recommended: not because the effect is zero in Q1 and Q2, but because the cost-benefit math changes substantially once you're deploying a non-trivial feature to students who show little response.</div>
           </div>
         </div>
       </div>
@@ -1697,7 +1697,7 @@ code {
                 <tr><td>Non-compliance</td><td>9% reversion; addressed via CACE estimator; ITT reported as primary</td><td>Low</td></tr>
                 <tr><td>Attrition bias</td><td>12% dropout rate; balance check on dropped-out students shows no differential attrition by arm (p = 0.44)</td><td>Low</td></tr>
                 <tr><td>Hawthorne effect</td><td>Treatment students aware of new feature; novelty effect possible in first 4 weeks; retention measured at 90 days to mitigate</td><td>Moderate</td></tr>
-                <tr><td>External validity</td><td>Single platform, single enrollment cohort; generalization to other platforms or subject areas untested</td><td>Moderate</td></tr>
+                <tr><td>External validity</td><td>Single platform, single enrollment cohort; generalization to other platforms or subject domains has not been tested</td><td>Moderate</td></tr>
               </tbody>
             </table>
           </div>
@@ -1727,7 +1727,7 @@ code {
               <li>The 90-day window may not capture long-run retention dynamics; 180-day follow-up is recommended</li>
               <li>SUTVA is assumed but not tested; a cluster-randomized design on geographic cohorts would provide cleaner identification</li>
             </ul>
-            <div class="callout teal" style="margin-top:0.75rem">The pre-registered criterion for deployment approval was satisfied. We recommended phased rollout to at-risk students (Q3 through Q5) with continued holdout of the control arm for 180-day follow-up, and a pre-planned replication experiment in the following enrollment cohort.</div>
+            <div class="callout teal" style="margin-top:0.75rem">Both pre-registered criteria were satisfied. We recommended phased rollout to Q3 through Q5, keeping the control arm live for 180-day follow-up, with a replication experiment pre-planned for the next enrollment cohort. The Hawthorne effect concern is real enough that a second wave with blinded controls is the right call before full deployment.</div>
           </div>
         </div>
       </div>
