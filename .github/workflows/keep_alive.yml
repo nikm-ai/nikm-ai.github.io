@@ -11,15 +11,21 @@ jobs:
     steps:
       - name: Ping LBO Calculator
         run: |
-          STATUS=$(curl -o /dev/null -s -w "%{http_code}" https://nikmlbo.streamlit.app/)
+          STATUS=$(curl -L -o /dev/null -s -w "%{http_code}" \
+            -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" \
+            https://nikmlbo.streamlit.app/)
           echo "LBO Calculator status: $STATUS"
 
       - name: Ping Market Pricing Intelligence
         run: |
-          STATUS=$(curl -o /dev/null -s -w "%{http_code}" https://marketpricingintelligence-atvmumeubevb2x8cpbhddx.streamlit.app/)
+          STATUS=$(curl -L -o /dev/null -s -w "%{http_code}" \
+            -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" \
+            https://marketpricingintelligence-atvmumeubevb2x8cpbhddx.streamlit.app/)
           echo "Market Pricing Intelligence status: $STATUS"
 
       - name: Ping Portfolio Risk Dashboard
         run: |
-          STATUS=$(curl -o /dev/null -s -w "%{http_code}" https://nikmportfolioriskdash.streamlit.app/)
+          STATUS=$(curl -L -o /dev/null -s -w "%{http_code}" \
+            -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" \
+            https://nikmportfolioriskdash.streamlit.app/)
           echo "Portfolio Risk Dashboard status: $STATUS"
