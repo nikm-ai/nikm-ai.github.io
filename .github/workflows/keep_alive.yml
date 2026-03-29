@@ -1,0 +1,25 @@
+name: Keep Streamlit Apps Alive
+
+on:
+  schedule:
+    - cron: '0 */10 * * *'  # Runs every 10 hours
+  workflow_dispatch:         # Allows manual trigger from GitHub UI
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping LBO Calculator
+        run: |
+          STATUS=$(curl -o /dev/null -s -w "%{http_code}" https://nikmlbo.streamlit.app/)
+          echo "LBO Calculator status: $STATUS"
+
+      - name: Ping Market Pricing Intelligence
+        run: |
+          STATUS=$(curl -o /dev/null -s -w "%{http_code}" https://marketpricingintelligence-atvmumeubevb2x8cpbhddx.streamlit.app/)
+          echo "Market Pricing Intelligence status: $STATUS"
+
+      - name: Ping Portfolio Risk Dashboard
+        run: |
+          STATUS=$(curl -o /dev/null -s -w "%{http_code}" https://nikmportfolioriskdash.streamlit.app/)
+          echo "Portfolio Risk Dashboard status: $STATUS"
