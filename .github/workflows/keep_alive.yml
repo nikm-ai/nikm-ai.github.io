@@ -9,23 +9,52 @@ jobs:
   ping:
     runs-on: ubuntu-latest
     steps:
-      - name: Ping LBO Calculator
-        run: |
-          STATUS=$(curl -L -o /dev/null -s -w "%{http_code}" \
-            -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" \
-            https://nikmlbo.streamlit.app/)
-          echo "LBO Calculator status: $STATUS"
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
 
-      - name: Ping Market Pricing Intelligence
+      - name: Install Playwright
         run: |
-          STATUS=$(curl -L -o /dev/null -s -w "%{http_code}" \
-            -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" \
-            https://marketpricingintelligence-atvmumeubevb2x8cpbhddx.streamlit.app/)
-          echo "Market Pricing Intelligence status: $STATUS"
+          pip install playwright
+          playwright install chromium
 
-      - name: Ping Portfolio Risk Dashboard
+      - name: Wake Streamlit Apps
         run: |
-          STATUS=$(curl -L -o /dev/null -s -w "%{http_code}" \
-            -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" \
-            https://nikmportfolioriskdash.streamlit.app/)
-          echo "Portfolio Risk Dashboard status: $STATUS"
+          python - <<'EOF'
+          import asyncio
+          from playwright.async_api import async_playwright
+
+          APPS = [
+              ("LBO Calculator", "https://nikmlbo.streamlit.app/"),
+              ("Market Pricing Intelligence", "https://marketpricingintelligence-atvmumeubevb2x8cpbhddx.streamlit.app/"),
+              ("Portfolio Risk Dashboard", "https://nikmportfolioriskdash.streamlit.app/"),
+          ]
+
+          async def wake_app(browser, name, url):
+              page = await browser.new_page()
+              try:
+                  print(f"Visiting {name}...")
+                  await page.goto(url, timeout=60000)
+                  # If sleeping, click the wake button
+                  try:
+                      btn = page.get_by_role("button", name="Yes, get this app back up!")
+                      await btn.click(timeout=10000)
+                      print(f"  -> Clicked wake button for {name}")
+                      await page.wait_for_timeout(15000)
+                  except:
+                      print(f"  -> {name} was already awake")
+              except Exception as e:
+                  print(f"  -> Error on {name}: {e}")
+              finally:
+                  await page.close()
+
+          async def main():
+              async with async_playwright() as p:
+                  browser = await p.chromium.launch()
+                  for name, url in APPS:
+                      await wake_app(browser, name, url)
+                  await browser.close()
+
+          asyncio.run(main())
+          EOF
