@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rent Optimization — Nik Manohar</title>
+<title>Rent Optimization - Nik Manohar</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -56,7 +56,7 @@
       <div class="cs-meta-item"><strong>MAE:</strong> $164/mo</div>
     </div>
     <div class="cs-outcomes">
-      <div class="outcome-cell"><div class="outcome-num">0.946</div><div class="outcome-label">CV R² — GBM vs. Ridge baseline at 0.800 (+14.6 pp)</div></div>
+      <div class="outcome-cell"><div class="outcome-num">0.946</div><div class="outcome-label">CV R² - GBM vs. Ridge baseline at 0.800 (+14.6 pp)</div></div>
       <div class="outcome-cell"><div class="outcome-num">$164</div><div class="outcome-label">MAE (monthly rent), 5-fold CV across 2,000 listings</div></div>
       <div class="outcome-cell"><div class="outcome-num">5</div><div class="outcome-label">Metro markets: Austin, Chicago, Denver, Nashville, Seattle</div></div>
     </div>
@@ -74,7 +74,7 @@
   <div class="cs-section fade-up">
     <div class="section-label">Feature Set</div>
     <h2>Observable Listing and <em>Market-Level Predictors</em></h2>
-    <p class="cs-body-text" style="margin-bottom:1.5rem">All features came from the client's property management system, comparable transaction data, and public census variables. No proprietary third-party feeds were used — the client had a hard constraint on data vendor spend, and the model needed to be reproducible on their existing infrastructure.</p>
+    <p class="cs-body-text" style="margin-bottom:1.5rem">All features came from the client's property management system, comparable transaction data, and public census variables. No proprietary third-party feeds were used - the client had a hard constraint on data vendor spend, and the model needed to be reproducible on their existing infrastructure.</p>
     <table class="dtable">
       <thead><tr><th>Feature</th><th>Source</th><th>Role</th></tr></thead>
       <tbody>
@@ -149,7 +149,7 @@
       <div>
         <p class="cs-body-text">The dashboard was built for property managers with no quantitative background. The design principle was simple: <strong>show the conclusion, not the model.</strong> Each listing displays a status (overpriced, underpriced, or within band), the recommended dollar adjustment, and an estimated occupancy impact. The model mechanics are not exposed.</p>
         <ul class="blist" style="margin-top:0.75rem">
-          <li>Revenue impact expressed as annualized dollars — not percentages — per manager feedback during testing</li>
+          <li>Revenue impact expressed as annualized dollars - not percentages - per manager feedback during testing</li>
           <li>Demand score shown as a percentile rank within submarket, not a raw score</li>
           <li>Model version and last-refresh timestamp displayed on every view to maintain trust in data currency</li>
         </ul>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RCT &amp; Causal Inference — Nik Manohar</title>
+<title>RCT &amp; Causal Inference - Nik Manohar</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -65,7 +65,7 @@
   <div class="cs-section fade-up">
     <div class="section-label">Research Question &amp; Estimand</div>
     <h2>Identifying the Causal Effect of <em>Adaptive Session Pacing on Retention</em></h2>
-    <p class="cs-body-text">The platform from <a href="cs-churn.html" style="color:var(--ink-mid)">Case Study 01</a> wanted to test a product change: replacing fixed 45-minute sessions with an adaptive pacing system that reads engagement signals and adjusts session length in real time. The obvious analysis — comparing outcomes across students who happened to use the feature — wouldn't work. Students who engage more are already different in the ways that predict retention.</p>
+    <p class="cs-body-text">The platform from <a href="cs-churn.html" style="color:var(--ink-mid)">Case Study 01</a> wanted to test a product change: replacing fixed 45-minute sessions with an adaptive pacing system that reads engagement signals and adjusts session length in real time. The obvious analysis - comparing outcomes across students who happened to use the feature - wouldn't work. Students who engage more are already different in the ways that predict retention.</p>
     <p class="cs-body-text">So we ran an experiment. Before touching any outcome data, we filed a pre-registration specifying the estimand, the randomization scheme, the target sample size, and the criterion that would trigger a deployment recommendation. <strong>Primary estimand: ATT.</strong> Secondary: ITT. Analysis locked before unblinding.</p>
   </div>
 
@@ -76,9 +76,9 @@
     <h2>Minimum Detectable Effect and <em>Sample Size Determination</em></h2>
     <div class="two-col">
       <div>
-        <p class="cs-body-text">The outcome was 90-day retention, binary. With a baseline rate of 71% from the prior 18-month cohort and a two-sided test at α = 0.05 with 80% power, we needed to detect a 5 percentage point lift. That threshold was set by the client — below 5 pp the feature wouldn't recover its development cost.</p>
+        <p class="cs-body-text">The outcome was 90-day retention, binary. With a baseline rate of 71% from the prior 18-month cohort and a two-sided test at α = 0.05 with 80% power, we needed to detect a 5 percentage point lift. That threshold was set by the client - below 5 pp the feature wouldn't recover its development cost.</p>
         <p class="cs-body-text" style="margin-top:1rem">From those parameters, the normal approximation to the binomial gives n ≈ 604 per arm. We added a 15% attrition buffer and targeted 700, or 1,400 total. Final enrollment: 1,412 (706 per arm) over a 12-week window.</p>
-        <div class="callout accent" style="margin-top:1rem">Running the sensitivity analysis across MDEs from 3 pp to 8 pp made the constraint concrete: effects below 3 pp would require more than 2,200 students per arm — longer than the platform's product cycle allowed.</div>
+        <div class="callout accent" style="margin-top:1rem">Running the sensitivity analysis across MDEs from 3 pp to 8 pp made the constraint concrete: effects below 3 pp would require more than 2,200 students per arm - longer than the platform's product cycle allowed.</div>
       </div>
       <div>
         <div class="section-label" style="margin-bottom:0.75rem">Power curve across effect sizes (n = 700 per arm)</div>
@@ -102,8 +102,8 @@
     <div class="two-col">
       <div>
         <p class="cs-body-text">Assignment was stratified on two variables: enrollment cohort month and subscription tier. Cohort month controlled for seasonal retention patterns; tier controlled for a known confound between plan type and engagement levels. Within each stratum, students were assigned 50/50 using a seeded CSPRNG, with the seed committed to the pre-registration document before any assignments were made.</p>
-        <p class="cs-body-text" style="margin-top:1rem">After enrollment closed, we checked balance across eight pre-treatment covariates using standardized mean differences. The largest SMD was 0.08 — well below the 0.10 threshold. A KS test on baseline session frequency returned p = 0.61.</p>
-        <div class="callout accent" style="margin-top:1rem">Blocking on two variables roughly halved estimator variance relative to simple random assignment — equivalent to needing about 250 fewer students to hit the same power target.</div>
+        <p class="cs-body-text" style="margin-top:1rem">After enrollment closed, we checked balance across eight pre-treatment covariates using standardized mean differences. The largest SMD was 0.08 - well below the 0.10 threshold. A KS test on baseline session frequency returned p = 0.61.</p>
+        <div class="callout accent" style="margin-top:1rem">Blocking on two variables roughly halved estimator variance relative to simple random assignment - equivalent to needing about 250 fewer students to hit the same power target.</div>
       </div>
       <div>
         <div class="section-label" style="margin-bottom:0.75rem">SMDs, baseline covariates (all below 0.10 threshold)</div>
@@ -168,7 +168,7 @@
           <tbody>
             <tr><td>ATT (CUPED)</td><td>+5.4 pp</td><td>&lt;0.001</td><td>Reject H₀ ✓</td></tr>
             <tr><td>ITT (CUPED)</td><td>+4.9 pp</td><td>&lt;0.001</td><td>Reject H₀ ✓</td></tr>
-            <tr><td>CACE (IV)</td><td>+6.0 pp</td><td>&lt;0.001</td><td>—</td></tr>
+            <tr><td>CACE (IV)</td><td>+6.0 pp</td><td>&lt;0.001</td><td>-</td></tr>
           </tbody>
         </table>
       </div>

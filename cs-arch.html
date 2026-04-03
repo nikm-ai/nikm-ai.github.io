@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LLM Architecture Evaluation — Nik Manohar</title>
+<title>LLM Architecture Evaluation - Nik Manohar</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -55,7 +55,7 @@
       <div class="cs-meta-item"><strong>Recommendation:</strong> Embedding retrieval</div>
     </div>
     <div class="cs-outcomes">
-      <div class="outcome-cell"><div class="outcome-num">89%</div><div class="outcome-label">Classification accuracy — embedding retrieval (vs. 84% LoRA)</div></div>
+      <div class="outcome-cell"><div class="outcome-num">89%</div><div class="outcome-label">Classification accuracy - embedding retrieval (vs. 84% LoRA)</div></div>
       <div class="outcome-cell"><div class="outcome-num">3</div><div class="outcome-label">Architectures evaluated on accuracy, cost, complexity, and adaptability</div></div>
       <div class="outcome-cell"><div class="outcome-num">~5×</div><div class="outcome-label">Lower 12-month infrastructure cost vs. LoRA fine-tuning</div></div>
     </div>
@@ -105,7 +105,7 @@
       </div>
       <div>
         <div class="verdict rec">Recommended: embedding retrieval</div>
-        <p class="cs-body-text">Retrieval won on accuracy and came in at a fraction of the infrastructure cost. That inverts the usual expectation — fine-tuning is supposed to beat retrieval on narrow tasks. The reason it didn't here is worth understanding.</p>
+        <p class="cs-body-text">Retrieval won on accuracy and came in at a fraction of the infrastructure cost. That inverts the usual expectation - fine-tuning is supposed to beat retrieval on narrow tasks. The reason it didn't here is worth understanding.</p>
         <div class="callout teal" style="margin-top:1rem">These 40 categories are not domain-exotic. They're well-represented in the base model's pretraining data, so the embedding space already separates them without any additional training. Fine-tuning yields the biggest gains where the base model genuinely lacks exposure to the domain. That wasn't the case here.</div>
       </div>
     </div>
@@ -149,7 +149,7 @@
       <div>
         <div class="verdict rec">Embedding retrieval: recommended</div>
         <p class="cs-body-text" style="margin-bottom:1rem">Retrieval dominates on all four evaluation criteria for this task: accuracy, cost, operational simplicity, and adaptability. The recommendation followed directly.</p>
-        <div class="callout teal">This result is task-specific. LoRA is the right choice when the base model genuinely lacks domain exposure — clinical note summarization, specialized translation, domain-specific code generation. The lesson here is diagnostic, not general: check whether your embedding space already separates the target categories before committing to fine-tuning infrastructure.</div>
+        <div class="callout teal">This result is task-specific. LoRA is the right choice when the base model genuinely lacks domain exposure - clinical note summarization, specialized translation, domain-specific code generation. The lesson here is diagnostic, not general: check whether your embedding space already separates the target categories before committing to fine-tuning infrastructure.</div>
       </div>
       <div>
         <div class="verdict out">LoRA: not recommended for this task</div>

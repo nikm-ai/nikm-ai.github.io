@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LLM Portfolio Narrative Generation — Nik Manohar</title>
+<title>LLM Portfolio Narrative Generation - Nik Manohar</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -79,7 +79,7 @@
         <p class="cs-body-text">The pipeline takes a structured Python dictionary of monthly metrics and returns a four-section document: performance summary, attribution analysis, risk commentary, and forward outlook. Each section is a separate API call. That structure allows the analyst to review and approve sections independently and keeps any single prompt well within context limits.</p>
         <ul class="blist" style="margin-top:0.75rem">
           <li>System prompt encodes firm-specific terminology, risk appetite language, and the set of claims that require explicit hedging</li>
-          <li>Temperature set to 0.2 for factual stability — tested at 0.0 and 0.4 with 0.2 chosen as the balance point</li>
+          <li>Temperature set to 0.2 for factual stability - tested at 0.0 and 0.4 with 0.2 chosen as the balance point</li>
           <li>Chain-of-thought instruction: model is asked to derive narrative from the data provided, not from pattern-matched boilerplate</li>
           <li>Explicit instruction to flag anomalies in the data rather than smooth over them in narrative</li>
         </ul>

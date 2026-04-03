@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Work — Nik Manohar</title>
+<title>Work - Nik Manohar</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -118,7 +118,7 @@
   <div class="page-header fade-up">
     <div class="label" style="margin-bottom:0.75rem">Case Studies</div>
     <h1>Selected <em>Engagements</em></h1>
-    <p>Six documented projects spanning predictive modeling, data infrastructure, LLM system design, and causal inference — each written to show both the technical decisions and the tradeoffs that shaped them.</p>
+    <p>Six documented projects spanning predictive modeling, data infrastructure, LLM system design, and causal inference - each written to show both the technical decisions and the tradeoffs that shaped them.</p>
   </div>
 
   <div class="filter-bar fade-up">
@@ -267,4 +267,15 @@ btns.forEach(btn => {
     btns.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     const f = btn.dataset.filter;
-    rows.forEach(row =
+    rows.forEach(row => {
+      if (f === 'all' || row.dataset.cats.includes(f)) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  });
+});
+</script>
+</body>
+</html>

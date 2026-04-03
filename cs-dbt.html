@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>dbt Pipeline Architecture — Nik Manohar</title>
+<title>dbt Pipeline Architecture - Nik Manohar</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -97,7 +97,7 @@
     <h2>Salesforce, Postgres, and <em>Google Sheets as Unified Sources</em></h2>
     <div class="two-col">
       <div>
-        <p class="cs-body-text">Each source had its own failure mode. Salesforce objects came in via Fivetran with non-deterministic sync timing and occasional duplicate rows. Postgres tables were clean structurally but needed extensive type coercion. Google Sheets — which operations teams used for territory mappings and targets — was the most fragile: a stale manual update could silently corrupt downstream reports without a freshness check in place.</p>
+        <p class="cs-body-text">Each source had its own failure mode. Salesforce objects came in via Fivetran with non-deterministic sync timing and occasional duplicate rows. Postgres tables were clean structurally but needed extensive type coercion. Google Sheets - which operations teams used for territory mappings and targets - was the most fragile: a stale manual update could silently corrupt downstream reports without a freshness check in place.</p>
       </div>
       <div>
         <ul class="blist">
@@ -117,7 +117,7 @@
     <h2>Automated Testing Across <em>All Mart Models</em></h2>
     <div class="two-col">
       <div>
-        <p class="cs-body-text">Every mart model shipped with a <code>schema.yml</code> test suite. Generic tests covered the structural basics — uniqueness, nulls, accepted values. Singular tests written in SQL caught the domain-specific cases that generic tests can't express: revenue figures that should never be negative, or churn dates that can't precede enrollment.</p>
+        <p class="cs-body-text">Every mart model shipped with a <code>schema.yml</code> test suite. Generic tests covered the structural basics - uniqueness, nulls, accepted values. Singular tests written in SQL caught the domain-specific cases that generic tests can't express: revenue figures that should never be negative, or churn dates that can't precede enrollment.</p>
         <div class="callout accent" style="margin-top:1rem">Test coverage was a contractual deliverable in two of the three engagements. Clients kept the test suite on handoff as a regression harness for future changes.</div>
       </div>
       <div>
@@ -143,7 +143,7 @@
     <h2>Results and <em>Client Knowledge Transfer</em></h2>
     <div class="two-col">
       <div>
-        <p class="cs-body-text">The mart models were built with Looker naming conventions in mind from the start. That reduced the LookML work considerably and meant the handoff document was the dbt project itself — not a separate piece of documentation that would immediately fall out of date.</p>
+        <p class="cs-body-text">The mart models were built with Looker naming conventions in mind from the start. That reduced the LookML work considerably and meant the handoff document was the dbt project itself - not a separate piece of documentation that would immediately fall out of date.</p>
         <ul class="blist" style="margin-top:1rem">
           <li>All three clients stopped running ad-hoc SQL scripts outside version control</li>
           <li>Consistent naming across mart models shortened the LookML work on the Looker side</li>
@@ -152,7 +152,7 @@
         </ul>
       </div>
       <div>
-        <div class="callout teal">The <code>dbt docs generate</code> site served as the handoff document. Lineage graphs, column-level descriptions, and test results in one place — the internal team could update them without re-engagement.</div>
+        <div class="callout teal">The <code>dbt docs generate</code> site served as the handoff document. Lineage graphs, column-level descriptions, and test results in one place - the internal team could update them without re-engagement.</div>
       </div>
     </div>
   </div>
