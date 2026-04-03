@@ -236,6 +236,51 @@
 .exp-org { font-size: 11px; font-weight: 500; color: var(--ink); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 4px; }
 .exp-role { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--ink-dim); margin-bottom: 0.75rem; }
 .exp-body { font-size: 13px; color: var(--ink-mid); line-height: 1.65; }
+
+/* ================================================================
+   ENTRANCE ANIMATIONS
+================================================================ */
+
+/* Shared keyframe for all hero elements and bio lines */
+@keyframes heroReveal {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Hero blocks (eyebrow, name, contact) */
+.hero-anim {
+  opacity: 0;
+}
+.hero-anim.go {
+  animation: heroReveal 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* Bio sentences - each a display:block span */
+.bio-line {
+  display: block;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.bio-line.go {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Page body / nav / footer */
+@keyframes bodyReveal {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.site-nav,
+#page-body {
+  opacity: 0;
+}
+.site-nav.go,
+#page-body.go {
+  animation: bodyReveal 1.2s ease forwards;
+}
 </style>
 </head>
 <body>
@@ -254,18 +299,23 @@
 
 <div class="page-wrap">
 
-  <!-- HERO -->
   <section class="hero">
-    <div class="hero-eyebrow fade-up">
+
+    <div class="hero-eyebrow hero-anim">
       <span class="dot"></span>
       <span class="label">Manohar Analytics Consulting · New York, NY</span>
     </div>
-    <h1 class="hero-name fade-up fade-up-1">Nik Manohar<br><em>Data Science & Analytics</em></h1>
-    <p class="hero-bio fade-up fade-up-2">
-      I like to build models.<br><br>
-      Over 10 years of quantitative work - solving data problems and turning insights into actions.<br>
+
+    <h1 class="hero-name hero-anim">Nik Manohar<br><em>Data Science & Analytics</em></h1>
+
+    <!-- Bio: each sentence is a .bio-line and arrives independently -->
+    <p class="hero-bio">
+      <span class="bio-line">I like to build models.</span>
+      <span class="bio-line">&nbsp;</span>
+      <span class="bio-line">Over 10 years of quantitative work - solving data problems and turning insights into actions.</span>
     </p>
-    <div class="hero-contact fade-up fade-up-3">
+
+    <div class="hero-contact hero-anim">
       <a class="hero-link" href="mailto:manohar.analytics@proton.me">
         <svg viewBox="0 0 12 12" fill="none"><rect x="1" y="2.5" width="10" height="7" rx="1" stroke="currentColor" stroke-width="1"/><path d="M1 3.5L6 7l5-3.5" stroke="currentColor" stroke-width="1"/></svg>
         Email
@@ -275,161 +325,162 @@
         GitHub
       </a>
     </div>
+
   </section>
 
-  <!-- LIVE APPS -->
-  <div class="section-head fade-up">
-    <span class="label">Live Applications</span>
-  </div>
-  <p style="font-size:14px;color:var(--ink-mid);margin-bottom:1.75rem;max-width:100%;line-height:1.7;">
-    Three production-grade tools you can open right now - portfolio risk analytics, rental pricing intelligence, and LBO modeling.
-  </p>
+  <div id="page-body">
 
-  <div class="app-grid">
-    <a href="https://nikmportfolioriskdash.streamlit.app/" target="_blank" class="app-card fade-up fade-up-1">
-      <div class="app-num">APP 01</div>
-      <div class="app-title">Equity Portfolio Risk Dashboard</div>
-      <div class="app-desc">Risk attribution and factor analysis across a 20-stock US large-cap portfolio benchmarked against the S&amp;P 500. Covers Sharpe, Sortino, Calmar, VaR/CVaR, CAPM alpha, Fama-French three-factor attribution, efficient frontier, stress testing, and regime detection.</div>
-      <div class="app-meta">
-        <div class="tag-row">
-          <span class="tag">Python</span>
-          <span class="tag">yfinance</span>
-          <span class="tag">Fama-French</span>
-          <span class="tag">VaR/CVaR</span>
-        </div>
-        <div class="app-link-icon">
-          <svg viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M8 2H4M8 2V6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
-        </div>
-      </div>
-    </a>
-
-    <a href="https://marketpricingintelligence-atvmumeubevb2x8cpbhddx.streamlit.app/" target="_blank" class="app-card fade-up fade-up-2">
-      <div class="app-num">APP 02</div>
-      <div class="app-title">Rental Pricing Intelligence</div>
-      <div class="app-desc">Gradient Boosting Regressor trained on 2,000 synthetic listings across five US metro markets. Detects systematic pricing inefficiencies. Cross-validated R² of 0.946 (MAE $164/mo), outperforming Ridge baseline by 14.6 pp. Interactive scenario analysis with demand elasticity parameters.</div>
-      <div class="app-meta">
-        <div class="tag-row">
-          <span class="tag">GBM</span>
-          <span class="tag">sklearn</span>
-          <span class="tag">CV R² 0.946</span>
-        </div>
-        <div class="app-link-icon">
-          <svg viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M8 2H4M8 2V6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
-        </div>
-      </div>
-    </a>
-
-    <a href="https://nikmlbo.streamlit.app/" target="_blank" class="app-card fade-up fade-up-3">
-      <div class="app-num">APP 03</div>
-      <div class="app-title">Leveraged Buyout Analysis</div>
-      <div class="app-desc">Interactive LBO structuring model with full return attribution, sensitivity tables, and Quasi-Monte Carlo risk simulation. Computes IRR and MOIC distributions under stochastic EBITDA, exit multiple, and debt structure assumptions.</div>
-      <div class="app-meta">
-        <div class="tag-row">
-          <span class="tag">Monte Carlo</span>
-          <span class="tag">IRR/MOIC</span>
-          <span class="tag">Sensitivity</span>
-        </div>
-        <div class="app-link-icon">
-          <svg viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M8 2H4M8 2V6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
-        </div>
-      </div>
-    </a>
-  </div>
-
-  <!-- WORK PREVIEW -->
-  <div class="section-head">
-    <span class="label">Case Studies</span>
-  </div>
-  <p style="font-size:14px;color:var(--ink-mid);margin-bottom:1.75rem;max-width:100%;line-height:1.7;">
-    Six documented engagements spanning ML modeling, data infrastructure, LLM systems, and causal inference.
-    <a href="work.html" style="color:var(--accent);text-decoration:none;margin-left:8px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;">View all →</a>
-  </p>
-
-  <div class="work-preview">
-    <a href="cs-churn.html" class="work-card">
-      <div class="work-num">01</div>
-      <div class="work-title">Customer Churn Prediction via Behavioral Feature Engineering</div>
-      <div class="work-sub">XGBoost · EdTech platform · 81% holdout recall · ~8% churn reduction</div>
-      <div class="work-arrow">Read case study <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M6 3l2 2-2 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-    </a>
-    <a href="cs-dbt.html" class="work-card">
-      <div class="work-num">02</div>
-      <div class="work-title">Analytics Pipeline Architecture with dbt</div>
-      <div class="work-sub">dbt Core · SaaS clients · Salesforce, Postgres, Google Sheets · Looker</div>
-      <div class="work-arrow">Read case study <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M6 3l2 2-2 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-    </a>
-    <a href="cs-rent.html" class="work-card">
-      <div class="work-num">03</div>
-      <div class="work-title">Rent Optimization via Gradient Boosting and Mispricing Detection</div>
-      <div class="work-sub">LightGBM · Residential real estate · CV R² = 0.946 · MAE $164/mo</div>
-      <div class="work-arrow">Read case study <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M6 3l2 2-2 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-    </a>
-    <a href="cs-llm.html" class="work-card">
-      <div class="work-num">04</div>
-      <div class="work-title">LLM-Automated Portfolio Narrative Generation</div>
-      <div class="work-sub">GPT-4 API · Financial services · 6–8h cycle reduced to &lt;20m</div>
-      <div class="work-arrow">Read case study <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M6 3l2 2-2 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-    </a>
-    <a href="cs-arch.html" class="work-card">
-      <div class="work-num">05</div>
-      <div class="work-title">LLM Fine-Tuning versus Retrieval-Augmented Classification</div>
-      <div class="work-sub">Architecture evaluation · Enterprise document classification · LoRA vs. RAG</div>
-      <div class="work-arrow">Read case study <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M6 3l2 2-2 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-    </a>
-    <a href="cs-rct.html" class="work-card">
-      <div class="work-num">06</div>
-      <div class="work-title">Randomized Experiment Design and Causal Effect Estimation</div>
-      <div class="work-sub">RCT · CUPED · BART · ATT +5.4 pp, p &lt; 0.001 · P(τ &gt; 0) = 97%</div>
-      <div class="work-arrow">Read case study <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M6 3l2 2-2 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-    </a>
-  </div>
-
-  <!-- CURRENTLY THINKING ABOUT -->
-  <div class="thinking-section fade-up">
-    <div class="section-head" style="padding-top:0;margin-bottom:1.25rem;">
-      <span class="label">Currently thinking about</span>
+    <div class="section-head fade-up">
+      <span class="label">Live Applications</span>
     </div>
-    <div class="thinking-items">
-      <div class="thinking-item">
-        <span class="thinking-label">Churn Prediction</span>
-        <span class="thinking-text">Feature engineering for behavioral data, turning messy engagement signals into models that can actually identify at-risk users early enough to intervene.</span>
-      </div>
-      <div class="thinking-item">
-        <span class="thinking-label">Rent & Pricing Models</span>
-        <span class="thinking-text">Using gradient boosting and market-level features to detect pricing inefficiencies and quantify upside across segments.</span>
-      </div>
-      <div class="thinking-item">
-        <span class="thinking-label">LLM-Enabled Analytics</span>
-        <span class="thinking-text">Exploring how large language models can be integrated into traditional analytics workflows to enhance data interpretation and decision-making.</span>
-      </div>
-    </div>
-  </div>
+    <p style="font-size:14px;color:var(--ink-mid);margin-bottom:1.75rem;max-width:100%;line-height:1.7;">
+      Three production-grade tools you can open right now - portfolio risk analytics, rental pricing intelligence, and LBO modeling.
+    </p>
 
-  <!-- EXPERIENCE -->
-  <div class="section-head">
-    <span class="label">Prior Experience</span>
-  </div>
-  <div class="exp-grid">
-    <div class="exp-card">
-      <div class="exp-org">Rent the Runway</div>
-      <div class="exp-role">Data Scientist</div>
-      <div class="exp-body">Built inventory demand forecasting models that meaningfully reduced excess inventory. Developed dbt pipelines and Looker dashboards consumed by product, finance, and operations.</div>
-    </div>
-    <div class="exp-card">
-      <div class="exp-org">King Street Capital Management</div>
-      <div class="exp-role">Sr. Analyst, Portfolio & Risk Analytics</div>
-      <div class="exp-body">Portfolio performance analytics and risk reporting for a large multi-asset hedge fund. Built dbt-based ETL pipelines and reporting infrastructure. Led ESG analytics initiative tracking carbon exposure and governance metrics.</div>
-    </div>
-    <div class="exp-card">
-      <div class="exp-org">Navigant Consulting · BEA</div>
-      <div class="exp-role">Economics Practice</div>
-      <div class="exp-body">Quantitative economic analysis for expert witness testimony in antitrust and valuation disputes. Prior: Economist at the U.S. Department of Commerce producing personal income and employment estimates.</div>
-    </div>
-  </div>
+    <div class="app-grid">
+      <a href="https://nikmportfolioriskdash.streamlit.app/" target="_blank" class="app-card fade-up fade-up-1">
+        <div class="app-num">APP 01</div>
+        <div class="app-title">Equity Portfolio Risk Dashboard</div>
+        <div class="app-desc">Risk attribution and factor analysis across a 20-stock US large-cap portfolio benchmarked against the S&amp;P 500. Covers Sharpe, Sortino, Calmar, VaR/CVaR, CAPM alpha, Fama-French three-factor attribution, efficient frontier, stress testing, and regime detection.</div>
+        <div class="app-meta">
+          <div class="tag-row">
+            <span class="tag">Python</span>
+            <span class="tag">yfinance</span>
+            <span class="tag">Fama-French</span>
+            <span class="tag">VaR/CVaR</span>
+          </div>
+          <div class="app-link-icon">
+            <svg viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M8 2H4M8 2V6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+      </a>
 
-</div>
+      <a href="https://marketpricingintelligence-atvmumeubevb2x8cpbhddx.streamlit.app/" target="_blank" class="app-card fade-up fade-up-2">
+        <div class="app-num">APP 02</div>
+        <div class="app-title">Rental Pricing Intelligence</div>
+        <div class="app-desc">Gradient Boosting Regressor trained on 2,000 synthetic listings across five US metro markets. Detects systematic pricing inefficiencies. Cross-validated R² of 0.946 (MAE $164/mo), outperforming Ridge baseline by 14.6 pp. Interactive scenario analysis with demand elasticity parameters.</div>
+        <div class="app-meta">
+          <div class="tag-row">
+            <span class="tag">GBM</span>
+            <span class="tag">sklearn</span>
+            <span class="tag">CV R² 0.946</span>
+          </div>
+          <div class="app-link-icon">
+            <svg viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M8 2H4M8 2V6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+      </a>
 
-<footer>
+      <a href="https://nikmlbo.streamlit.app/" target="_blank" class="app-card fade-up fade-up-3">
+        <div class="app-num">APP 03</div>
+        <div class="app-title">Leveraged Buyout Analysis</div>
+        <div class="app-desc">Interactive LBO structuring model with full return attribution, sensitivity tables, and Quasi-Monte Carlo risk simulation. Computes IRR and MOIC distributions under stochastic EBITDA, exit multiple, and debt structure assumptions.</div>
+        <div class="app-meta">
+          <div class="tag-row">
+            <span class="tag">Monte Carlo</span>
+            <span class="tag">IRR/MOIC</span>
+            <span class="tag">Sensitivity</span>
+          </div>
+          <div class="app-link-icon">
+            <svg viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M8 2H4M8 2V6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="section-head">
+      <span class="label">Case Studies</span>
+    </div>
+    <p style="font-size:14px;color:var(--ink-mid);margin-bottom:1.75rem;max-width:100%;line-height:1.7;">
+      Six documented engagements spanning ML modeling, data infrastructure, LLM systems, and causal inference.
+      <a href="work.html" style="color:var(--accent);text-decoration:none;margin-left:8px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;">View all →</a>
+    </p>
+
+    <div class="work-preview">
+      <a href="cs-churn.html" class="work-card">
+        <div class="work-num">01</div>
+        <div class="work-title">Customer Churn Prediction via Behavioral Feature Engineering</div>
+        <div class="work-sub">XGBoost · EdTech platform · 81% holdout recall · ~8% churn reduction</div>
+        <div class="work-arrow">Read case study <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M6 3l2 2-2 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </a>
+      <a href="cs-dbt.html" class="work-card">
+        <div class="work-num">02</div>
+        <div class="work-title">Analytics Pipeline Architecture with dbt</div>
+        <div class="work-sub">dbt Core · SaaS clients · Salesforce, Postgres, Google Sheets · Looker</div>
+        <div class="work-arrow">Read case study <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M6 3l2 2-2 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </a>
+      <a href="cs-rent.html" class="work-card">
+        <div class="work-num">03</div>
+        <div class="work-title">Rent Optimization via Gradient Boosting and Mispricing Detection</div>
+        <div class="work-sub">LightGBM · Residential real estate · CV R² = 0.946 · MAE $164/mo</div>
+        <div class="work-arrow">Read case study <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M6 3l2 2-2 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </a>
+      <a href="cs-llm.html" class="work-card">
+        <div class="work-num">04</div>
+        <div class="work-title">LLM-Automated Portfolio Narrative Generation</div>
+        <div class="work-sub">GPT-4 API · Financial services · 6–8h cycle reduced to &lt;20m</div>
+        <div class="work-arrow">Read case study <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M6 3l2 2-2 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </a>
+      <a href="cs-arch.html" class="work-card">
+        <div class="work-num">05</div>
+        <div class="work-title">LLM Fine-Tuning versus Retrieval-Augmented Classification</div>
+        <div class="work-sub">Architecture evaluation · Enterprise document classification · LoRA vs. RAG</div>
+        <div class="work-arrow">Read case study <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M6 3l2 2-2 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </a>
+      <a href="cs-rct.html" class="work-card">
+        <div class="work-num">06</div>
+        <div class="work-title">Randomized Experiment Design and Causal Effect Estimation</div>
+        <div class="work-sub">RCT · CUPED · BART · ATT +5.4 pp, p &lt; 0.001 · P(τ &gt; 0) = 97%</div>
+        <div class="work-arrow">Read case study <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M6 3l2 2-2 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </a>
+    </div>
+
+    <div class="thinking-section fade-up">
+      <div class="section-head" style="padding-top:0;margin-bottom:1.25rem;">
+        <span class="label">Currently thinking about</span>
+      </div>
+      <div class="thinking-items">
+        <div class="thinking-item">
+          <span class="thinking-label">Churn Prediction</span>
+          <span class="thinking-text">Feature engineering for behavioral data, turning messy engagement signals into models that can actually identify at-risk users early enough to intervene.</span>
+        </div>
+        <div class="thinking-item">
+          <span class="thinking-label">Rent & Pricing Models</span>
+          <span class="thinking-text">Using gradient boosting and market-level features to detect pricing inefficiencies and quantify upside across segments.</span>
+        </div>
+        <div class="thinking-item">
+          <span class="thinking-label">LLM-Enabled Analytics</span>
+          <span class="thinking-text">Exploring how large language models can be integrated into traditional analytics workflows to enhance data interpretation and decision-making.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-head">
+      <span class="label">Prior Experience</span>
+    </div>
+    <div class="exp-grid">
+      <div class="exp-card">
+        <div class="exp-org">Rent the Runway</div>
+        <div class="exp-role">Data Scientist</div>
+        <div class="exp-body">Built inventory demand forecasting models that meaningfully reduced excess inventory. Developed dbt pipelines and Looker dashboards consumed by product, finance, and operations.</div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-org">King Street Capital Management</div>
+        <div class="exp-role">Sr. Analyst, Portfolio & Risk Analytics</div>
+        <div class="exp-body">Portfolio performance analytics and risk reporting for a large multi-asset hedge fund. Built dbt-based ETL pipelines and reporting infrastructure. Led ESG analytics initiative tracking carbon exposure and governance metrics.</div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-org">Navigant Consulting · BEA</div>
+        <div class="exp-role">Economics Practice</div>
+        <div class="exp-body">Quantitative economic analysis for expert witness testimony in antitrust and valuation disputes. Prior: Economist at the U.S. Department of Commerce producing personal income and employment estimates.</div>
+      </div>
+    </div>
+
+  </div><!-- /#page-body -->
+
+</div><!-- /.page-wrap -->
+
+<footer id="site-footer" style="opacity:0;">
   <div class="site-footer">
     <div class="footer-left">Manohar Analytics Consulting · New York, NY</div>
     <div class="footer-links">
@@ -442,7 +493,54 @@
 <div class="cursor-glow" id="cursorGlow"></div>
 
 <script>
-// Cursor glow
+// ── TIMING CONFIG - only touch these numbers ─────────────────
+var INITIAL_DELAY = 1500;  // ms blank page before anything appears
+var INCREMENT     = 600;   // ms between each hero element
+var BIO_INCREMENT = 400;   // ms between each bio sentence
+// ────────────────────────────────────────────────────────────
+
+// Collect the staggered elements in order:
+// eyebrow, name, bio line 1, bio line 2, bio line 3, contact
+var heroBlocks = Array.from(document.querySelectorAll('.hero-anim'));
+var bioLines   = Array.from(document.querySelectorAll('.bio-line'));
+
+// Build a flat sequence: eyebrow → name → bio[0] → bio[1] → bio[2] → contact
+// We interleave: heroBlocks[0], heroBlocks[1], then bio lines, then heroBlocks[2]
+var sequence = [
+  { el: heroBlocks[0], delay: INITIAL_DELAY },                        // eyebrow
+  { el: heroBlocks[1], delay: INITIAL_DELAY + INCREMENT },            // name
+];
+
+// Bio sentences follow name
+bioLines.forEach(function (line, i) {
+  sequence.push({
+    el: line,
+    delay: INITIAL_DELAY + INCREMENT * 2 + BIO_INCREMENT * i,
+    isBio: true
+  });
+});
+
+// Contact follows last bio line
+var contactDelay = INITIAL_DELAY + INCREMENT * 2 + BIO_INCREMENT * bioLines.length + INCREMENT;
+sequence.push({ el: heroBlocks[2], delay: contactDelay });            // contact
+
+// Fire each item
+sequence.forEach(function (item) {
+  setTimeout(function () {
+    item.el.classList.add('go');
+  }, item.delay);
+});
+
+// Rest of page reveals after contact settles
+var HERO_DONE = contactDelay + 900 + 200;
+setTimeout(function () {
+  document.querySelector('.site-nav').classList.add('go');
+  document.getElementById('page-body').classList.add('go');
+  document.getElementById('site-footer').style.animation = 'bodyReveal 1.2s ease forwards';
+}, HERO_DONE);
+
+// ── EXISTING SCRIPTS (unchanged) ────────────────────────────
+
 const glow = document.getElementById('cursorGlow');
 let glowVisible = false;
 document.addEventListener('mousemove', (e) => {
@@ -452,7 +550,6 @@ document.addEventListener('mousemove', (e) => {
 });
 document.addEventListener('mouseleave', () => { glow.style.opacity = '0'; glowVisible = false; });
 
-// Animated stat counters
 function animateCounter(el, target, suffix, prefix, duration) {
   const start = performance.now();
   function step(now) {
